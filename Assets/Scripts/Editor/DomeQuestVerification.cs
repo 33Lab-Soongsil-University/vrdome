@@ -51,30 +51,50 @@ public static class DomeQuestVerification
                 if(Quaternion.Angle(Quaternion.identity,rig.head.transform.localRotation)<1)throw new Exception("PC look failed");
                 Call("HandleDesktopNavigation",new Event{type=EventType.KeyDown,keyCode=KeyCode.R});
                 if(Quaternion.Angle(Quaternion.identity,rig.head.transform.localRotation)>.01f)throw new Exception("PC recenter failed");
-                var buttons=rig.GetComponentsInChildren<Button>();if(buttons.Length!=8)throw new Exception("World menu button count");
-                Physics.SyncTransforms();
-                var point=rig.head.WorldToScreenPoint(buttons.First(b=>b.name=="Next seat").transform.position);
-                Call("DesktopMenuInput",new Vector2(point.x,Screen.height-point.y),true);if(rig.seat!=1)throw new Exception("Seat action failed");
-                Call("HandleDesktopNavigation",new Event{type=EventType.KeyDown,keyCode=KeyCode.Space});if(playback.State!=DomeVideoSetup.PlaybackState.Paused)throw new Exception("Pause failed");
-                rig.SelectSeat(0);Capture();rig.TogglePlayback();if(playback.State!=DomeVideoSetup.PlaybackState.Playing)throw new Exception("Resume failed");
+                Click("Seat dropdown");
+                Click("Seat option FRONT");
+                if(rig.seat!=1)throw new Exception("Seat dropdown failed");
+                var menu=rig.GetComponentInChildren<DomeDropdownMenu>();
+                if(menu.OpenSection!=-1)throw new Exception("Selection did not close dropdown");
+                if(!rig.GetComponentsInChildren<Button>().First(b=>b.name=="Seat dropdown").GetComponentInChildren<Text>().text.Contains("Front"))throw new Exception("Seat label not updated");
+                Click("Controls dropdown");Click("Play / Pause");
+                if(playback.State!=DomeVideoSetup.PlaybackState.Paused)throw new Exception("Dropdown pause failed");
+                rig.SelectSeat(0);menu.Toggle(0);Capture();
+                rig.TogglePlayback();if(playback.State!=DomeVideoSetup.PlaybackState.Playing)throw new Exception("Resume failed");
                 Call("HandleDesktopNavigation",new Event{type=EventType.KeyDown,keyCode=KeyCode.RightArrow});phase=2;
             }
             else if(phase==2&&playback.State==DomeVideoSetup.PlaybackState.Playing&&playback.MainTime>.5)
             {
                 if(rig.library.current!=1)throw new Exception("Clip action failed");
-                rig.ShowMenu(false);if(rig.MenuVisible)throw new Exception("Hide menu failed");rig.ShowMenu(true);
-                File.WriteAllText("/tmp/dome-quest-verification.txt","PASS: automatic desktop mode without HMD; simulated VR/PC transitions and camera ownership; right-drag look, R recenter, mouse hit-test seat selection, keyboard video switch and pause; 8 menu buttons, playback and rendering.\nHeadset tracking, controller input, stereo and Windows video decoding require physical Quest 3 testing.");
+                Click("Video dropdown");Click("Next page");Click("Video option 1");phase=3;
+            }
+            else if(phase==3&&playback.State==DomeVideoSetup.PlaybackState.Playing&&playback.MainTime>.5)
+            {
+                if(rig.library.current!=7)throw new Exception("Paged video selection failed");
+                Click("Controls dropdown");Click("Restart");phase=4;
+            }
+            else if(phase==4&&playback.State==DomeVideoSetup.PlaybackState.Playing&&playback.MainTime>.5)
+            {
+                Click("Recenter");Click("Hide menu");if(rig.MenuVisible)throw new Exception("Hide menu failed");rig.ShowMenu(true);
+                File.WriteAllText("/tmp/dome-quest-verification.txt","PASS: rounded dropdown seat selection and label update; close after selection; paged video selection; pause/resume/restart/recenter/hide; keyboard video navigation; simulated VR/PC camera ownership; playback and rendering.\nPhysical Windows Quest Link/controller/stereo testing remains required.");
                 Finish();
             }
         }
         catch(Exception e){File.WriteAllText("/tmp/dome-quest-verification.txt","FAIL: "+e);Finish();}
+    }
+    static void Click(string name)
+    {
+        Call("PlaceMenu");Physics.SyncTransforms();
+        var button=rig.GetComponentsInChildren<Button>().First(b=>b.name==name);
+        var point=rig.head.WorldToScreenPoint(button.transform.position);
+        if(!(bool)Call("DesktopMenuInput",new Vector2(point.x,Screen.height-point.y),true))throw new Exception("Mouse ray missed "+name);
     }
     static object Call(string name,params object[] args)
     {return typeof(DomeQuestViewer).GetMethod(name,System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).Invoke(rig,args);}
     static void Capture()
     {
         var rt=new RenderTexture(1280,720,24);var prior=rig.head.targetTexture;var active=RenderTexture.active;
-        rig.head.targetTexture=rt;rig.head.Render();RenderTexture.active=rt;var image=new Texture2D(1280,720,TextureFormat.RGB24,false);image.ReadPixels(new Rect(0,0,1280,720),0,0);image.Apply();File.WriteAllBytes("/tmp/dome-quest-preview.png",image.EncodeToPNG());rig.head.targetTexture=prior;RenderTexture.active=active;rt.Release();UnityEngine.Object.DestroyImmediate(rt);UnityEngine.Object.DestroyImmediate(image);
+        rig.head.targetTexture=rt;Call("PlaceMenu");rig.head.Render();RenderTexture.active=rt;var image=new Texture2D(1280,720,TextureFormat.RGB24,false);image.ReadPixels(new Rect(0,0,1280,720),0,0);image.Apply();File.WriteAllBytes("/tmp/dome-quest-preview.png",image.EncodeToPNG());rig.head.targetTexture=prior;Call("PlaceMenu");RenderTexture.active=active;rt.Release();UnityEngine.Object.DestroyImmediate(rt);UnityEngine.Object.DestroyImmediate(image);
     }
     static void Finish(){SessionState.SetBool("DomeQuestVerify",false);phase=0;EditorApplication.isPlaying=false;}
 }

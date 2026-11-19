@@ -27,3 +27,9 @@ Windows 빌드 모듈이 필요한 경우 Unity Hub에서 설치합니다.
 
 기존 에디터 메뉴/영상/좌석 검사는 통과했습니다. Windows EXE 빌드와 실제 Link 양안 표시, 컨트롤러 입력 및 프레임레이트는 Windows PC와 기기에서 검증해야 합니다. Main / Abstract / Context 실험 조건 배정과 결과 기록은 별도 구현 대상입니다.
 
+
+드롭다운 UI 업데이트
+오른쪽 위 좌석 이름 / 영상 이름 / Controls 버튼으로 조작합니다.
+좌석과 영상은 목록에서 직접 선택하며 영상 목록은 6개씩 페이지를 넘깁니다.
+Controls: Play/Pause, Restart, Recenter, Hide menu. Tab 또는 Menu 버튼으로 다시 열기.
+구현 설명: Docs/Quest3/UI_구조설명.txt

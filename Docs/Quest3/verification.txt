@@ -1,2 +1,2 @@
-PASS: automatic desktop mode without HMD; simulated VR/PC transitions and camera ownership; right-drag look, R recenter, mouse hit-test seat selection, keyboard video switch and pause; 8 menu buttons, playback and rendering.
-Headset tracking, controller input, stereo and Windows video decoding require physical Quest 3 testing.
+PASS: rounded dropdown seat selection and label update; close after selection; paged video selection; pause/resume/restart/recenter/hide; keyboard video navigation; simulated VR/PC camera ownership; playback and rendering.
+Physical Windows Quest Link/controller/stereo testing remains required.

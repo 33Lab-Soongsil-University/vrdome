@@ -15,14 +15,14 @@ public class DomeQuestViewer : MonoBehaviour
     public string[] seatNames;
     public Shader pointerShader;
     public int seat;
-    Transform panel; Text status; LineRenderer laser; Material laserMaterial;
+    Transform panel; DomeDropdownMenu menu; LineRenderer laser; Material laserMaterial;
     readonly List<XRDisplaySubsystem> displays=new List<XRDisplaySubsystem>();
     TrackedPoseDriver poseDriver; float desktopYaw,desktopPitch; bool vrCentered;
     public bool IsVR { get; private set; }
     public bool DesktopInputEnabled => !IsVR;
     readonly Dictionary<Collider,Button> buttons=new Dictionary<Collider,Button>();
     bool triggerWasDown,menuWasDown,playWasDown,recenterWasDown;
-    bool dwellClicked; float dwell,axisReady,reopenDwell; Button hover; Font font;
+    bool dwellClicked; float dwell,axisReady,reopenDwell; Button hover;
     public bool MenuVisible => panel!=null&&panel.gameObject.activeSelf;
     void Awake()
     {
@@ -49,13 +49,14 @@ public class DomeQuestViewer : MonoBehaviour
         if(poseDriver!=null)poseDriver.enabled=vr;
         desktopYaw=desktopPitch=0;
         head.transform.localPosition=Vector3.zero;head.transform.localRotation=Quaternion.identity;
-        panel.localScale=Vector3.one*(vr?.0017f:.0025f);
         triggerWasDown=menuWasDown=playWasDown=recenterWasDown=false;
         ClearHover();SelectSeat(seat);
     }
     void LateUpdate()
     {
-        if(!IsVR||vrCentered||panel==null)return;
+        if(panel==null)return;
+        if(!IsVR){if(MenuVisible)PlaceMenu();return;}
+        if(vrCentered)return;
         var h=InputDevices.GetDeviceAtXRNode(XRNode.Head);
         if(h.TryGetFeatureValue(CommonUsages.isTracked,out bool tracked)&&tracked){SelectSeat(seat);vrCentered=true;}
     }
@@ -78,12 +79,23 @@ public class DomeQuestViewer : MonoBehaviour
     }
     public void SelectClip(int delta){if(library.Count==0)return;library.Select((library.current+delta+library.Count)%library.Count);}
     public void TogglePlayback(){if(library.playback.State==DomeVideoSetup.PlaybackState.Playing)library.playback.PausePlayback();else library.playback.ResumePlayback();}
-    public void ShowMenu(bool show){panel.gameObject.SetActive(show);if(show)PlaceMenu();ClearHover();}
+    public void ShowMenu(bool show){panel.gameObject.SetActive(show);menu.Close();if(show)PlaceMenu();ClearHover();}
     void PlaceMenu()
     {
-        if(!IsVR){panel.position=head.transform.position+head.transform.forward*2f;panel.rotation=head.transform.rotation;return;}
+        if(!IsVR)
+        {
+            // Match a compact top-right overlay while keeping one raycastable Canvas for PC and VR.
+            float heightAtDepth=4f*Mathf.Tan(head.fieldOfView*Mathf.Deg2Rad*.5f);
+            panel.localScale=Vector3.one*(heightAtDepth*.88f/DomeDropdownMenu.MaxHeight);
+            panel.position=head.ViewportToWorldPoint(new Vector3(.985f,.97f,2f));
+            panel.rotation=head.transform.rotation;return;
+        }
+        panel.localScale=Vector3.one*.0014f;
         Vector3 f=Vector3.ProjectOnPlane(head.transform.forward,Vector3.up).normalized;if(f.sqrMagnitude<.1f)f=transform.forward;
-        panel.position=head.transform.position+f*2f-Vector3.up*.12f;panel.rotation=Quaternion.LookRotation(f,Vector3.up);
+        Vector3 right=Vector3.Cross(Vector3.up,f);
+        // A world-anchored panel slightly right of the viewing direction, repositioned only on request.
+        panel.position=head.transform.position+f*2f+right*.8f+Vector3.up*.48f;
+        panel.rotation=Quaternion.LookRotation(f,Vector3.up);
     }
     void Update()
     {
@@ -109,12 +121,12 @@ public class DomeQuestViewer : MonoBehaviour
             UpdateStatus();
             Ray ray=new Ray(pos,rot*Vector3.forward);Button hitButton=null;float distance=3;
             // Only menu colliders are considered; theater geometry cannot steal UI input.
-            foreach(var pair in buttons)if(pair.Key.Raycast(ray,out RaycastHit hit,3)&&hit.distance<distance){distance=hit.distance;hitButton=pair.Value;}
+            foreach(var pair in buttons)if(pair.Key.gameObject.activeInHierarchy&&pair.Key.Raycast(ray,out RaycastHit hit,3)&&hit.distance<distance){distance=hit.distance;hitButton=pair.Value;}
             laser.enabled=true;laser.SetPosition(0,tracked?pos:pos+ray.direction*.15f);laser.SetPosition(1,ray.GetPoint(distance));
             if(hover!=hitButton){if(hover!=null)hover.image.color=Normal;hover=hitButton;dwell=0;dwellClicked=false;}
             if(hover!=null)
             {
-                hover.image.color=new Color(.18f,.48f,.48f,1);
+                hover.image.color=DomeDropdownMenu.Highlight;
                 if(tracked){if(trigger&&!triggerWasDown)hover.onClick.Invoke();}
                 else {dwell+=Time.unscaledDeltaTime;if(dwell>1.5f&&!dwellClicked){var clicked=hover;dwellClicked=true;clicked.onClick.Invoke();}}
             }
@@ -127,12 +139,7 @@ public class DomeQuestViewer : MonoBehaviour
         }
         triggerWasDown=trigger;
     }
-    void UpdateStatus()
-    {
-        if(status==null)return;
-        string clip=library.Count>0?library.presets[library.current].displayName:"No video";
-        status.text=$"{clip}\nSeat: {(seatNames!=null&&seat<seatNames.Length?seatNames[seat]:seat.ToString())} | {library.playback.State} | {(IsVR?"VR":"PC")}";
-    }
+    void UpdateStatus(){menu.RefreshView();}
     void HandleDesktopNavigation(Event e)
     {
         if(IsVR)return;
@@ -165,55 +172,35 @@ public class DomeQuestViewer : MonoBehaviour
         if(panel==null||IsVR)return;
         var e=Event.current;
         HandleDesktopNavigation(e);
-        var toggle=new Rect(Screen.width-160,12,148,32);
-        if(GUI.Button(toggle,MenuVisible?"Hide menu [Tab]":"Show menu [Tab]"))ShowMenu(!MenuVisible);
-        GUI.Box(new Rect(12,Screen.height-34,Mathf.Min(760,Screen.width-24),26),"PC | Right drag: look  |  Click: select  |  Left/Right: video  |  Up/Down: seat  |  Space: pause  |  R: recenter");
-        if(!MenuVisible||toggle.Contains(e.mousePosition))return;
+        if(!MenuVisible)
+        {
+            if(GUI.Button(new Rect(Screen.width-150,16,134,34),"Menu [Tab]"))ShowMenu(true);
+            return;
+        }
         bool click=e.type==EventType.MouseDown&&e.button==0;
         if(DesktopMenuInput(e.mousePosition,click)&&click)e.Use();
+        else if(click){menu.Close();ClearHover();}
     }
     bool DesktopMenuInput(Vector2 mousePosition,bool click)
     {
         if(IsVR||!MenuVisible)return false;
         Ray ray=head.ScreenPointToRay(new Vector3(mousePosition.x,Screen.height-mousePosition.y,0));
-        Button target=null;float distance=3;
-        foreach(var pair in buttons)if(pair.Key.Raycast(ray,out RaycastHit hit,3)&&hit.distance<distance){distance=hit.distance;target=pair.Value;}
-        if(hover!=target){ClearHover();hover=target;if(hover!=null)hover.image.color=new Color(.18f,.48f,.48f,1);}
+        Button target=null;float distance=100;
+        foreach(var pair in buttons)if(pair.Key.gameObject.activeInHierarchy&&pair.Key.Raycast(ray,out RaycastHit hit,100)&&hit.distance<distance){distance=hit.distance;target=pair.Value;}
+        if(hover!=target){ClearHover();hover=target;if(hover!=null)hover.image.color=DomeDropdownMenu.Highlight;}
         if(click&&hover!=null){var clicked=hover;clicked.onClick.Invoke();return true;}
         return false;
     }
-    static readonly Color Normal=new Color(.10f,.17f,.23f,1);
+    static readonly Color Normal=DomeDropdownMenu.Normal;
     void BuildMenu()
     {
-        font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        var go=new GameObject("Quest world menu",typeof(RectTransform),typeof(Canvas));panel=go.transform;
-        panel.SetParent(transform,false);panel.localScale=Vector3.one*.0017f;
+        var go=new GameObject("Quest world menu",typeof(RectTransform),typeof(Canvas),typeof(DomeDropdownMenu));panel=go.transform;
+        panel.SetParent(transform,false);
         var canvas=go.GetComponent<Canvas>();canvas.renderMode=RenderMode.WorldSpace;canvas.worldCamera=head;
-        var rect=(RectTransform)panel;rect.sizeDelta=new Vector2(680,430);
-        var bg=go.AddComponent<Image>();bg.color=new Color(.025f,.045f,.065f,.96f);
-        Label("DOME VIDEO",new Vector2(0,170),new Vector2(620,45),26);
-        status=Label("Preparing",new Vector2(0,110),new Vector2(630,65),21);
-        AddButton("Previous video",new Vector2(-160,40),()=>SelectClip(-1));AddButton("Next video",new Vector2(160,40),()=>SelectClip(1));
-        AddButton("Previous seat",new Vector2(-160,-25),()=>SelectSeat(seat-1));AddButton("Next seat",new Vector2(160,-25),()=>SelectSeat(seat+1));
-        AddButton("Play / Pause",new Vector2(-160,-90),TogglePlayback);AddButton("Restart",new Vector2(160,-90),()=>library.playback.RestartPlayback());
-        AddButton("Recenter",new Vector2(-160,-155),()=>SelectSeat(seat));AddButton("Hide menu",new Vector2(160,-155),()=>ShowMenu(false));
+        menu=go.GetComponent<DomeDropdownMenu>();menu.Initialize(this,(collider,button)=>buttons.Add(collider,button));
         var beam=new GameObject("Controller menu pointer");beam.transform.SetParent(transform,false);laser=beam.AddComponent<LineRenderer>();
         laserMaterial=new Material(pointerShader);laserMaterial.color=new Color(.3f,1,.8f);laserMaterial.SetColor("_BaseColor",new Color(.3f,1,.8f));
         laser.sharedMaterial=laserMaterial;laser.positionCount=2;laser.startWidth=.003f;laser.endWidth=.002f;laser.useWorldSpace=true;
-    }
-    Text Label(string value,Vector2 xy,Vector2 size,int fontsize)
-    {
-        var go=new GameObject(value,typeof(RectTransform),typeof(Text));go.transform.SetParent(panel,false);
-        var rect=go.GetComponent<RectTransform>();rect.anchoredPosition=xy;rect.sizeDelta=size;
-        var text=go.GetComponent<Text>();text.text=value;text.font=font;text.fontSize=fontsize;text.alignment=TextAnchor.MiddleCenter;text.color=Color.white;return text;
-    }
-    void AddButton(string label,Vector2 xy,UnityEngine.Events.UnityAction action)
-    {
-        var go=new GameObject(label,typeof(RectTransform),typeof(Image),typeof(Button),typeof(BoxCollider));go.transform.SetParent(panel,false);
-        var rect=go.GetComponent<RectTransform>();rect.anchoredPosition=xy;rect.sizeDelta=new Vector2(290,52);
-        var b=go.GetComponent<Button>();b.image.color=Normal;b.onClick.AddListener(action);
-        var collider=go.GetComponent<BoxCollider>();collider.size=new Vector3(290,52,10);buttons.Add(collider,b);
-        var text=Label(label,xy,new Vector2(280,48),20);text.raycastTarget=false;
     }
     void OnDestroy(){if(laserMaterial!=null)Destroy(laserMaterial);}
 }
