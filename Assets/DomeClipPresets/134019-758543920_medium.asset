@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80e6158845a14470831b1aa37271817, type: 3}
+  m_Name: 134019-758543920_medium
+  m_EditorClassIdentifier: Assembly-CSharp::DomeClipPreset
+  displayName: Waterfront fireworks
+  observation: "\uC2E4\uC0AC \uC218\uBCC0 \uBD88\uAF43\uC1FC. 3.5/4/7.8/9.3/13.3/14.3/21.4\uCD08 \uB4F1 \uBC1C\uD654 \uAD6C\uAC04\uC744 \uC0D8\uD50C \uD655\uC778. \uC0C1\uBD80 \uD3ED\uBC1C \uC601\uC5ED\uC744 \uC798\uB77C \uC8FC\uBCC0 \uBD88\uAF43\uC73C\uB85C \uD655\uC7A5."
+  sourceFiles:
+  - /Users/nayeon/Downloads/134019-758543920_medium.mp4
+  mainClip: {fileID: 32900000, guid: e92baff3d4856440e94037bde931b767, type: 3}
+  backgroundClip: {fileID: 0}
+  backgroundImage: {fileID: 2800000, guid: 5c582ba9819a14a09946d1aafb87b828, type: 3}
+  backgroundUV: {x: 0, y: 0.01, z: 1, w: 0.99}
+  crop:
+    serializedVersion: 2
+    x: 0.04
+    y: 0.02
+    width: 0.92
+    height: 0.55
+  width: 86
+  height: 35
+  elevation: 10
+  blend: 0.2
+  backgroundBrightness: 0.85
+  cleanBeachSky: 0
+  useSourceEdges: 0
+  cues: []
+  fireworks:
+  - label: Observed burst ~-0.50s
+    startSeconds: -0.5
+    sourceUV: {x: 0.4, y: 0.68}
+    color: {r: 1, g: 0.6, b: 0.6, a: 1}
+    duration: 3
+    spreadDegrees: 26
+    seed: 197
+  - label: Observed burst ~3.50s
+    startSeconds: 3.5
+    sourceUV: {x: 0.8, y: 0.68}
+    color: {r: 0.8, g: 0.7, b: 1, a: 1}
+    duration: 3
+    spreadDegrees: 26
+    seed: 597
+  - label: Observed burst ~4.00s
+    startSeconds: 4
+    sourceUV: {x: 0.35, y: 0.68}
+    color: {r: 1, g: 0.8, b: 0.4, a: 1}
+    duration: 3
+    spreadDegrees: 26
+    seed: 647
+  - label: Observed burst ~7.80s
+    startSeconds: 7.8
+    sourceUV: {x: 0.82, y: 0.68}
+    color: {r: 1, g: 0.5, b: 0.6, a: 1}
+    duration: 3
+    spreadDegrees: 26
+    seed: 1027
+  - label: Observed burst ~9.30s
+    startSeconds: 9.3
+    sourceUV: {x: 0.35, y: 0.68}
+    color: {r: 0.7, g: 0.8, b: 1, a: 1}
+    duration: 3
+    spreadDegrees: 26
+    seed: 1177
+  - label: Observed burst ~13.30s
+    startSeconds: 13.3
+    sourceUV: {x: 0.8, y: 0.68}
+    color: {r: 1, g: 0.7, b: 0.4, a: 1}
+    duration: 3
+    spreadDegrees: 26
+    seed: 1577
+  - label: Observed burst ~14.30s
+    startSeconds: 14.3
+    sourceUV: {x: 0.35, y: 0.68}
+    color: {r: 1, g: 0.8, b: 0.5, a: 1}
+    duration: 3
+    spreadDegrees: 26
+    seed: 1677
+  - label: Observed burst ~21.40s
+    startSeconds: 21.4
+    sourceUV: {x: 0.28, y: 0.68}
+    color: {r: 0.7, g: 0.45, b: 1, a: 1}
+    duration: 3
+    spreadDegrees: 26
+    seed: 2387
+  - label: Observed burst ~21.80s
+    startSeconds: 21.8
+    sourceUV: {x: 0.73, y: 0.68}
+    color: {r: 1, g: 0.3, b: 0.3, a: 1}
+    duration: 3
+    spreadDegrees: 26
+    seed: 2427

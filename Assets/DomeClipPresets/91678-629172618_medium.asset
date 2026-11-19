@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80e6158845a14470831b1aa37271817, type: 3}
+  m_Name: 91678-629172618_medium
+  m_EditorClassIdentifier: Assembly-CSharp::DomeClipPreset
+  displayName: Falling cards
+  observation: "\uB3D9\uC804 \uC704\uB85C \uCE74\uB4DC\uAC00 \uBC18\uBCF5 \uB099\uD558. \uC6D0\uBCF8\uACFC \uAD6C\uBCC4\uB418\uB294 \uAC04\uC18C\uD654\uD55C \uCE74\uB4DC \uD30C\uD2F0\uD074\uC744 \uC88C\uC6B0 \uC8FC\uBCC0\uC73C\uB85C \uC774\uC5B4 \uB5A8\uC5B4\uB728\uB9BC."
+  sourceFiles:
+  - /Users/nayeon/Downloads/91678-629172618_medium.mp4
+  mainClip: {fileID: 32900000, guid: 529f2013f9fd54a60a4596a2cc0a9b96, type: 3}
+  backgroundClip: {fileID: 0}
+  backgroundImage: {fileID: 2800000, guid: 1b5902ea9433544a6ada29fbd719ad1d, type: 3}
+  backgroundUV: {x: 0, y: 0, z: 1, w: 1}
+  crop:
+    serializedVersion: 2
+    x: 0.08
+    y: 0.08
+    width: 0.84
+    height: 0.84
+  width: 86
+  height: 48
+  elevation: 10
+  blend: 0.2
+  backgroundBrightness: 0.95
+  cleanBeachSky: 0
+  useSourceEdges: 0
+  cues:
+  - label: Card rain continuation
+    kind: 5
+    start: 0
+    end: 28.82
+    lifetime: 5
+    sourceUV: {x: 0.06, y: 0.96}
+    velocity: {x: -12, y: -10}
+    spread: {x: 6, y: 4}
+    gravity: -2
+    rate: 5
+    size: 1.3
+    opacity: 0.95
+    color: {r: 0.7, g: 0.08, b: 0.08, a: 1}
+    seed: 42
+  - label: Card rain continuation
+    kind: 5
+    start: 0
+    end: 28.82
+    lifetime: 5
+    sourceUV: {x: 0.94, y: 0.96}
+    velocity: {x: 12, y: -10}
+    spread: {x: 6, y: 4}
+    gravity: -2
+    rate: 5
+    size: 1.3
+    opacity: 0.95
+    color: {r: 0.08, g: 0.1, b: 0.14, a: 1}
+    seed: 42
+  fireworks: []

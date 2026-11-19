@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80e6158845a14470831b1aa37271817, type: 3}
+  m_Name: 20454-309694522_medium
+  m_EditorClassIdentifier: Assembly-CSharp::DomeClipPreset
+  displayName: Seaside dusk
+  observation: "\uC2E4\uB8E8\uC5E3 \uC0AC\uB78C\uB4E4\uC774 \uBC29\uD30C\uC81C \uC704\uB85C \uAC78\uC74C. \uC9C1\uC811\uC801\uC778 \uD30C\uD2F0\uD074 \uC0AC\uAC74 \uC5C6\uC74C. \uD574\uD48D\uC758 \uBBF8\uC138 \uC785\uC790\uB97C \uB0AE\uC740 \uAC15\uB3C4\uB85C \uCD94\uAC00\uD558\uB294 \uBD84\uC704\uAE30 \uC5F0\uCD9C."
+  sourceFiles:
+  - /Users/nayeon/Downloads/20454-309694522_medium.mp4
+  mainClip: {fileID: 32900000, guid: 68667e3d8b8974154a4da16e266ad5f4, type: 3}
+  backgroundClip: {fileID: 0}
+  backgroundImage: {fileID: 2800000, guid: 33735a6ee432f410d9d02cfa93276070, type: 3}
+  backgroundUV: {x: 0, y: 0.08, z: 1, w: 0.92}
+  crop:
+    serializedVersion: 2
+    x: 0.08
+    y: 0.08
+    width: 0.84
+    height: 0.84
+  width: 86
+  height: 42
+  elevation: 10
+  blend: 0.2
+  backgroundBrightness: 0.9
+  cleanBeachSky: 0
+  useSourceEdges: 0
+  cues:
+  - label: Subtle sea breeze
+    kind: 7
+    start: 0
+    end: 27.56
+    lifetime: 4
+    sourceUV: {x: 0.06, y: 0.12}
+    velocity: {x: -9, y: 2}
+    spread: {x: 2, y: 1}
+    gravity: 0
+    rate: 4
+    size: 1.3
+    opacity: 0.08
+    color: {r: 0.75, g: 0.8, b: 0.85, a: 1}
+    seed: 42
+  - label: Subtle sea breeze
+    kind: 7
+    start: 0
+    end: 27.56
+    lifetime: 4
+    sourceUV: {x: 0.94, y: 0.12}
+    velocity: {x: 9, y: 2}
+    spread: {x: 2, y: 1}
+    gravity: 0
+    rate: 4
+    size: 1.3
+    opacity: 0.08
+    color: {r: 0.75, g: 0.8, b: 0.85, a: 1}
+    seed: 42
+  fireworks: []

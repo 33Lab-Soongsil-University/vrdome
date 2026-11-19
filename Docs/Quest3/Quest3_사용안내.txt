@@ -1,0 +1,41 @@
+Meta Quest 3 — VR Dome
+
+전용 씬: Assets/Scenes/quest3_dome.unity
+기존 모니터 씬: Assets/Scenes/nov11_video_suite.unity
+
+Quest용 씬은 14개 메인/BG 프리셋, 돔 극장, 좌석, 파티클을 사용합니다.
+HMD의 위치/회전은 Tracked Pose Driver가 제어합니다.
+좌석 전환은 XR Origin을 이동하며, 고개 추적은 계속 유지합니다.
+일반 2D 원본 영상 자체가 입체 영상으로 변환되는 것은 아닙니다.
+극장과 파티클은 3D 공간에 있고, 영상은 곡면 스크린에 표시됩니다.
+
+조작
+- 오른손 B: 메뉴 표시/숨김
+- 오른손 A: 재생/일시정지
+- 왼손 X: 현재 좌석 기준으로 정면/위치 재설정
+- 컨트롤러 포인터로 버튼을 가리키고 트리거: 선택
+- 메뉴가 열린 상태에서 왼쪽 스틱 좌/우: 이전/다음 영상
+- 메뉴의 Previous/Next seat: 관람 좌석 전환
+- 컨트롤러가 추적되지 않을 때: 버튼을 1.5초 바라보면 선택
+- 컨트롤러 없이 숨긴 메뉴 재열기: 아래를 2초간 바라보기
+
+빌드
+Unity 메뉴 Tools > Dome Study > Quest 3 > Build APK
+결과: Builds/Quest3/VRDome-Quest3.apk
+Android / OpenXR / Meta Quest Support / Oculus Touch / ARM64 / IL2CPP / Vulkan 구성입니다.
+Android용 빌드 모듈, SDK, NDK, OpenJDK를 설치했습니다.
+Quest 3에는 개발자 모드를 활성화하고 USB 디버깅 연결을 승인한 뒤 APK를 설치합니다.
+Mac에서는 Quest에 APK를 설치하여 단독 실행하는 방식입니다.
+
+검증 범위
+에디터에서 추적 카메라 구성, 8개 공간 메뉴 버튼, 좌석 변경,
+영상 전환, 일시정지/재생, 메뉴 표시/숨김과 렌더링을 확인했습니다.
+USB로 연결된 Quest가 없어 실제 양안 렌더링, 컨트롤러 입력,
+Android 영상 디코딩 및 프레임레이트는 기기에서 확인해야 합니다.
+72fps는 목표값이며 성능 측정 결과가 아닙니다.
+
+프로젝트의 영상 재생은 기존과 동일하게 무음입니다.
+실험 조건(Main / Abstract / Context) 무작위 배정 및 결과 기록은 별도 작업입니다.
+
+최종 빌드: 성공, 오류 0개. APK 약 458 MiB.
+수평 시점 보정 후 Android 타깃 에디터에서 메뉴/영상/좌석 검증을 다시 통과했습니다.

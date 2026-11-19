@@ -1,0 +1,2573 @@
+{
+  "entries": [
+    {
+      "id": "379763_medium",
+      "mainPath": "/Users/nayeon/Downloads/379763_medium.mp4",
+      "backgroundPath": "",
+      "preset": {
+        "displayName": "Lake fireworks",
+        "observation": "숲과 호수·보트. 시작부터 퍼진 불꽃, 약 1.5/2.3/4.4초에 새 섬광. 호수 전용 파노라마 BG 적용.",
+        "sourceFiles": [
+          "/Users/nayeon/Downloads/379763_medium.mp4"
+        ],
+        "crop": {
+          "x": 0.08,
+          "y": 0.05,
+          "width": 0.84,
+          "height": 0.64
+        },
+        "width": 86,
+        "height": 39,
+        "elevation": 10,
+        "blend": 0.2,
+        "backgroundBrightness": 0.95,
+        "cleanBeachSky": false,
+        "useSourceEdges": false,
+        "cues": [],
+        "fireworks": [
+          {
+            "label": "Observed burst ~-0.65s",
+            "startSeconds": -0.65,
+            "sourceUV": {
+              "x": 0.4,
+              "y": 0.82
+            },
+            "color": {
+              "r": 1,
+              "g": 0.45,
+              "b": 0.45,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 23,
+            "seed": 182
+          },
+          {
+            "label": "Observed burst ~-0.55s",
+            "startSeconds": -0.55,
+            "sourceUV": {
+              "x": 0.61,
+              "y": 0.82
+            },
+            "color": {
+              "r": 0.8,
+              "g": 0.88,
+              "b": 1,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 23,
+            "seed": 192
+          },
+          {
+            "label": "Observed burst ~1.50s",
+            "startSeconds": 1.5,
+            "sourceUV": {
+              "x": 0.4,
+              "y": 0.76
+            },
+            "color": {
+              "r": 1,
+              "g": 0.8,
+              "b": 0.4,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 23,
+            "seed": 397
+          },
+          {
+            "label": "Observed burst ~2.30s",
+            "startSeconds": 2.3,
+            "sourceUV": {
+              "x": 0.63,
+              "y": 0.78
+            },
+            "color": {
+              "r": 1,
+              "g": 0.57,
+              "b": 0.75,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 23,
+            "seed": 477
+          },
+          {
+            "label": "Observed burst ~4.40s",
+            "startSeconds": 4.4,
+            "sourceUV": {
+              "x": 0.65,
+              "y": 0.76
+            },
+            "color": {
+              "r": 0.8,
+              "g": 0.9,
+              "b": 1,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 23,
+            "seed": 687
+          }
+        ],
+        "backgroundUV": {
+          "x": 0,
+          "y": 0.08,
+          "z": 1,
+          "w": 0.92
+        }
+      },
+      "duration": 5.07,
+      "backgroundImagePath": "/Users/nayeon/.codex/.chatgpt-projects/g-p-6ad5bf6115f48191bdc5913689f4cf74/outputs/realistic_backgrounds/textures/lake.png"
+    },
+    {
+      "id": "361132_medium",
+      "mainPath": "/Users/nayeon/Downloads/361132_medium.mp4",
+      "backgroundPath": "",
+      "preset": {
+        "displayName": "Beach fireworks",
+        "observation": "해변 커플, 연속 불꽃. 주요 확장 큐는 0.3/3.6/6.7/8.2/9.5/12.0/13.0초 부근. 정확도는 약 0.25초의 시각 샘플 기반.",
+        "sourceFiles": [
+          "/Users/nayeon/Downloads/361132_medium.mp4"
+        ],
+        "crop": {
+          "x": 0.06,
+          "y": 0.02,
+          "width": 0.88,
+          "height": 0.62
+        },
+        "width": 86,
+        "height": 38,
+        "elevation": 10,
+        "blend": 0.2,
+        "backgroundBrightness": 0.95,
+        "cleanBeachSky": false,
+        "useSourceEdges": false,
+        "cues": [],
+        "fireworks": [
+          {
+            "label": "Observed burst ~0.30s",
+            "startSeconds": 0.3,
+            "sourceUV": {
+              "x": 0.44,
+              "y": 0.84
+            },
+            "color": {
+              "r": 1,
+              "g": 0.75,
+              "b": 0.3,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 23,
+            "seed": 276
+          },
+          {
+            "label": "Observed burst ~3.60s",
+            "startSeconds": 3.6,
+            "sourceUV": {
+              "x": 0.48,
+              "y": 0.76
+            },
+            "color": {
+              "r": 1,
+              "g": 0.8,
+              "b": 0.35,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 23,
+            "seed": 607
+          },
+          {
+            "label": "Observed burst ~6.70s",
+            "startSeconds": 6.7,
+            "sourceUV": {
+              "x": 0.72,
+              "y": 0.56
+            },
+            "color": {
+              "r": 1,
+              "g": 0.7,
+              "b": 0.25,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 23,
+            "seed": 916
+          },
+          {
+            "label": "Observed burst ~8.20s",
+            "startSeconds": 8.2,
+            "sourceUV": {
+              "x": 0.7,
+              "y": 0.72
+            },
+            "color": {
+              "r": 1,
+              "g": 0.8,
+              "b": 0.3,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 23,
+            "seed": 1066
+          },
+          {
+            "label": "Observed burst ~9.50s",
+            "startSeconds": 9.5,
+            "sourceUV": {
+              "x": 0.46,
+              "y": 0.75
+            },
+            "color": {
+              "r": 1,
+              "g": 0.35,
+              "b": 0.7,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 23,
+            "seed": 1197
+          },
+          {
+            "label": "Observed burst ~12.00s",
+            "startSeconds": 12,
+            "sourceUV": {
+              "x": 0.57,
+              "y": 0.74
+            },
+            "color": {
+              "r": 1,
+              "g": 0.7,
+              "b": 0.3,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 23,
+            "seed": 1447
+          },
+          {
+            "label": "Observed burst ~13.00s",
+            "startSeconds": 13,
+            "sourceUV": {
+              "x": 0.61,
+              "y": 0.83
+            },
+            "color": {
+              "r": 1,
+              "g": 0.7,
+              "b": 0.4,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 23,
+            "seed": 1547
+          }
+        ],
+        "backgroundUV": {
+          "x": 0,
+          "y": 0.1,
+          "z": 1,
+          "w": 0.9
+        }
+      },
+      "duration": 14.84,
+      "backgroundImagePath": "/Users/nayeon/.codex/.chatgpt-projects/g-p-6ad5bf6115f48191bdc5913689f4cf74/outputs/realistic_backgrounds/textures/beach.png"
+    },
+    {
+      "id": "134019-758543920_medium",
+      "mainPath": "/Users/nayeon/Downloads/134019-758543920_medium.mp4",
+      "backgroundPath": "",
+      "preset": {
+        "displayName": "Waterfront fireworks",
+        "observation": "실사 수변 불꽃쇼. 3.5/4/7.8/9.3/13.3/14.3/21.4초 등 발화 구간을 샘플 확인. 상부 폭발 영역을 잘라 주변 불꽃으로 확장.",
+        "sourceFiles": [
+          "/Users/nayeon/Downloads/134019-758543920_medium.mp4"
+        ],
+        "crop": {
+          "x": 0.04,
+          "y": 0.02,
+          "width": 0.92,
+          "height": 0.55
+        },
+        "width": 86,
+        "height": 35,
+        "elevation": 10,
+        "blend": 0.2,
+        "backgroundBrightness": 0.85,
+        "cleanBeachSky": false,
+        "useSourceEdges": false,
+        "cues": [],
+        "fireworks": [
+          {
+            "label": "Observed burst ~-0.50s",
+            "startSeconds": -0.5,
+            "sourceUV": {
+              "x": 0.4,
+              "y": 0.68
+            },
+            "color": {
+              "r": 1,
+              "g": 0.6,
+              "b": 0.6,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 26,
+            "seed": 197
+          },
+          {
+            "label": "Observed burst ~3.50s",
+            "startSeconds": 3.5,
+            "sourceUV": {
+              "x": 0.8,
+              "y": 0.68
+            },
+            "color": {
+              "r": 0.8,
+              "g": 0.7,
+              "b": 1,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 26,
+            "seed": 597
+          },
+          {
+            "label": "Observed burst ~4.00s",
+            "startSeconds": 4,
+            "sourceUV": {
+              "x": 0.35,
+              "y": 0.68
+            },
+            "color": {
+              "r": 1,
+              "g": 0.8,
+              "b": 0.4,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 26,
+            "seed": 647
+          },
+          {
+            "label": "Observed burst ~7.80s",
+            "startSeconds": 7.8,
+            "sourceUV": {
+              "x": 0.82,
+              "y": 0.68
+            },
+            "color": {
+              "r": 1,
+              "g": 0.5,
+              "b": 0.6,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 26,
+            "seed": 1027
+          },
+          {
+            "label": "Observed burst ~9.30s",
+            "startSeconds": 9.3,
+            "sourceUV": {
+              "x": 0.35,
+              "y": 0.68
+            },
+            "color": {
+              "r": 0.7,
+              "g": 0.8,
+              "b": 1,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 26,
+            "seed": 1177
+          },
+          {
+            "label": "Observed burst ~13.30s",
+            "startSeconds": 13.3,
+            "sourceUV": {
+              "x": 0.8,
+              "y": 0.68
+            },
+            "color": {
+              "r": 1,
+              "g": 0.7,
+              "b": 0.4,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 26,
+            "seed": 1577
+          },
+          {
+            "label": "Observed burst ~14.30s",
+            "startSeconds": 14.3,
+            "sourceUV": {
+              "x": 0.35,
+              "y": 0.68
+            },
+            "color": {
+              "r": 1,
+              "g": 0.8,
+              "b": 0.5,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 26,
+            "seed": 1677
+          },
+          {
+            "label": "Observed burst ~21.40s",
+            "startSeconds": 21.4,
+            "sourceUV": {
+              "x": 0.28,
+              "y": 0.68
+            },
+            "color": {
+              "r": 0.7,
+              "g": 0.45,
+              "b": 1,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 26,
+            "seed": 2387
+          },
+          {
+            "label": "Observed burst ~21.80s",
+            "startSeconds": 21.8,
+            "sourceUV": {
+              "x": 0.73,
+              "y": 0.68
+            },
+            "color": {
+              "r": 1,
+              "g": 0.3,
+              "b": 0.3,
+              "a": 1
+            },
+            "duration": 3,
+            "spreadDegrees": 26,
+            "seed": 2427
+          }
+        ],
+        "backgroundUV": {
+          "x": 0,
+          "y": 0.01,
+          "z": 1,
+          "w": 0.99
+        }
+      },
+      "duration": 23.67,
+      "backgroundImagePath": "/Users/nayeon/.codex/.chatgpt-projects/g-p-6ad5bf6115f48191bdc5913689f4cf74/outputs/realistic_backgrounds/textures/waterfront.png"
+    },
+    {
+      "id": "14560174_3840_2160_30fps (1)",
+      "mainPath": "/Users/nayeon/Downloads/14560174_3840_2160_30fps (1).mp4",
+      "backgroundPath": "",
+      "preset": {
+        "displayName": "Rafting splash",
+        "observation": "래프팅 POV. 약 7.0–7.4초 큰 물보라. 나머지는 연속 급류이며 카메라 회전이 커 고정 BG와 완전한 연결은 어려움.",
+        "sourceFiles": [
+          "/Users/nayeon/Downloads/14560174_3840_2160_30fps (1).mp4",
+          "/Users/nayeon/Downloads/14560174_3840_2160_30fps.mp4"
+        ],
+        "crop": {
+          "x": 0.06,
+          "y": 0.06,
+          "width": 0.88,
+          "height": 0.88
+        },
+        "width": 86,
+        "height": 48,
+        "elevation": 10,
+        "blend": 0.2,
+        "backgroundBrightness": 0.9,
+        "cleanBeachSky": false,
+        "useSourceEdges": false,
+        "cues": [
+          {
+            "label": "Main rapid impact ~7s",
+            "kind": 2,
+            "start": 6.95,
+            "end": 7.55,
+            "sourceUV": {
+              "x": 0.12,
+              "y": 0.48
+            },
+            "velocity": {
+              "x": -30,
+              "y": 27
+            },
+            "spread": {
+              "x": 12,
+              "y": 15
+            },
+            "lifetime": 2.5,
+            "rate": 100,
+            "size": 0.38,
+            "opacity": 0.8,
+            "color": {
+              "r": 0.78,
+              "g": 0.9,
+              "b": 1,
+              "a": 1
+            },
+            "gravity": -18,
+            "seed": 737
+          },
+          {
+            "label": "Main rapid impact ~7s",
+            "kind": 2,
+            "start": 6.95,
+            "end": 7.55,
+            "sourceUV": {
+              "x": 0.88,
+              "y": 0.48
+            },
+            "velocity": {
+              "x": 30,
+              "y": 27
+            },
+            "spread": {
+              "x": 12,
+              "y": 15
+            },
+            "lifetime": 2.5,
+            "rate": 100,
+            "size": 0.38,
+            "opacity": 0.8,
+            "color": {
+              "r": 0.78,
+              "g": 0.9,
+              "b": 1,
+              "a": 1
+            },
+            "gravity": -18,
+            "seed": 737
+          },
+          {
+            "label": "Continuous river spray",
+            "kind": 7,
+            "start": 0,
+            "end": 13.41,
+            "sourceUV": {
+              "x": 0.1,
+              "y": 0.18
+            },
+            "velocity": {
+              "x": -13,
+              "y": 3
+            },
+            "spread": {
+              "x": 3,
+              "y": 2
+            },
+            "lifetime": 2,
+            "rate": 10,
+            "size": 2,
+            "opacity": 0.14,
+            "color": {
+              "r": 0.85,
+              "g": 0.9,
+              "b": 0.91,
+              "a": 1
+            },
+            "gravity": 0,
+            "seed": 42
+          },
+          {
+            "label": "Continuous river spray",
+            "kind": 7,
+            "start": 0,
+            "end": 13.41,
+            "sourceUV": {
+              "x": 0.9,
+              "y": 0.18
+            },
+            "velocity": {
+              "x": 13,
+              "y": 3
+            },
+            "spread": {
+              "x": 3,
+              "y": 2
+            },
+            "lifetime": 2,
+            "rate": 10,
+            "size": 2,
+            "opacity": 0.14,
+            "color": {
+              "r": 0.85,
+              "g": 0.9,
+              "b": 0.91,
+              "a": 1
+            },
+            "gravity": 0,
+            "seed": 42
+          }
+        ],
+        "fireworks": [],
+        "backgroundUV": {
+          "x": 0,
+          "y": 0.08,
+          "z": 1,
+          "w": 0.92
+        }
+      },
+      "duration": 13.41,
+      "backgroundImagePath": "/Users/nayeon/.codex/.chatgpt-projects/g-p-6ad5bf6115f48191bdc5913689f4cf74/outputs/realistic_backgrounds/textures/river.png"
+    },
+    {
+      "id": "6463896-uhd_3840_2160_25fps (1)",
+      "mainPath": "/Users/nayeon/Downloads/6463896-uhd_3840_2160_25fps (1).mp4",
+      "backgroundPath": "",
+      "preset": {
+        "displayName": "Party confetti",
+        "observation": "실내 파티. 약 1.8–2.2초 발사 후 8초까지 색종이 낙하. 인물을 중앙에 두고 양쪽과 위로 확장.",
+        "sourceFiles": [
+          "/Users/nayeon/Downloads/6463896-uhd_3840_2160_25fps (1).mp4",
+          "/Users/nayeon/Downloads/6463896-uhd_3840_2160_25fps.mp4"
+        ],
+        "crop": {
+          "x": 0.08,
+          "y": 0.08,
+          "width": 0.84,
+          "height": 0.84
+        },
+        "width": 86,
+        "height": 47,
+        "elevation": 10,
+        "blend": 0.2,
+        "backgroundBrightness": 0.9,
+        "cleanBeachSky": false,
+        "useSourceEdges": false,
+        "cues": [
+          {
+            "label": "Confetti cannon ~1.8s",
+            "kind": 3,
+            "start": 1.8,
+            "end": 2.55,
+            "sourceUV": {
+              "x": 0.45,
+              "y": 0.58
+            },
+            "velocity": {
+              "x": 0,
+              "y": 32
+            },
+            "spread": {
+              "x": 55,
+              "y": 12
+            },
+            "lifetime": 6,
+            "rate": 140,
+            "size": 0.55,
+            "opacity": 0.9,
+            "color": {
+              "r": 0.55,
+              "g": 0.85,
+              "b": 1,
+              "a": 1
+            },
+            "gravity": -10,
+            "seed": 222
+          }
+        ],
+        "fireworks": [],
+        "backgroundUV": {
+          "x": 0,
+          "y": 0.14,
+          "z": 1,
+          "w": 0.86
+        }
+      },
+      "duration": 8.8,
+      "backgroundImagePath": "/Users/nayeon/.codex/.chatgpt-projects/g-p-6ad5bf6115f48191bdc5913689f4cf74/outputs/realistic_backgrounds/textures/party.png"
+    },
+    {
+      "id": "374328_medium",
+      "mainPath": "/Users/nayeon/Downloads/374328_medium.mp4",
+      "backgroundPath": "",
+      "preset": {
+        "displayName": "Puppy autumn leaves",
+        "observation": "강아지가 낙엽 더미로 내려앉는 약 2.4초부터 잎이 크게 튐. 2.9–3.4초 재상승.",
+        "sourceFiles": [
+          "/Users/nayeon/Downloads/374328_medium.mp4"
+        ],
+        "crop": {
+          "x": 0.13,
+          "y": 0.03,
+          "width": 0.74,
+          "height": 0.87
+        },
+        "width": 86,
+        "height": 45,
+        "elevation": 10,
+        "blend": 0.2,
+        "backgroundBrightness": 0.9,
+        "cleanBeachSky": false,
+        "useSourceEdges": false,
+        "cues": [
+          {
+            "label": "Puppy leaf impact",
+            "kind": 1,
+            "start": 2.35,
+            "end": 2.7,
+            "sourceUV": {
+              "x": 0.2,
+              "y": 0.2
+            },
+            "velocity": {
+              "x": -30,
+              "y": 22
+            },
+            "spread": {
+              "x": 9,
+              "y": 9
+            },
+            "lifetime": 3.2,
+            "rate": 65,
+            "size": 0.7,
+            "opacity": 0.95,
+            "color": {
+              "r": 1,
+              "g": 0.64,
+              "b": 0.12,
+              "a": 1
+            },
+            "gravity": -10,
+            "seed": 277
+          },
+          {
+            "label": "Puppy leaf impact",
+            "kind": 1,
+            "start": 2.35,
+            "end": 2.7,
+            "sourceUV": {
+              "x": 0.8,
+              "y": 0.2
+            },
+            "velocity": {
+              "x": 30,
+              "y": 22
+            },
+            "spread": {
+              "x": 9,
+              "y": 9
+            },
+            "lifetime": 3.2,
+            "rate": 65,
+            "size": 0.7,
+            "opacity": 0.95,
+            "color": {
+              "r": 1,
+              "g": 0.64,
+              "b": 0.12,
+              "a": 1
+            },
+            "gravity": -10,
+            "seed": 277
+          },
+          {
+            "label": "Puppy leaf impact",
+            "kind": 1,
+            "start": 2.9,
+            "end": 3.25,
+            "sourceUV": {
+              "x": 0.2,
+              "y": 0.2
+            },
+            "velocity": {
+              "x": -30,
+              "y": 22
+            },
+            "spread": {
+              "x": 9,
+              "y": 9
+            },
+            "lifetime": 3.2,
+            "rate": 65,
+            "size": 0.7,
+            "opacity": 0.95,
+            "color": {
+              "r": 1,
+              "g": 0.64,
+              "b": 0.12,
+              "a": 1
+            },
+            "gravity": -10,
+            "seed": 332
+          },
+          {
+            "label": "Puppy leaf impact",
+            "kind": 1,
+            "start": 2.9,
+            "end": 3.25,
+            "sourceUV": {
+              "x": 0.8,
+              "y": 0.2
+            },
+            "velocity": {
+              "x": 30,
+              "y": 22
+            },
+            "spread": {
+              "x": 9,
+              "y": 9
+            },
+            "lifetime": 3.2,
+            "rate": 65,
+            "size": 0.7,
+            "opacity": 0.95,
+            "color": {
+              "r": 1,
+              "g": 0.64,
+              "b": 0.12,
+              "a": 1
+            },
+            "gravity": -10,
+            "seed": 332
+          },
+          {
+            "label": "Puppy leaf impact",
+            "kind": 1,
+            "start": 3.3,
+            "end": 3.65,
+            "sourceUV": {
+              "x": 0.2,
+              "y": 0.2
+            },
+            "velocity": {
+              "x": -30,
+              "y": 22
+            },
+            "spread": {
+              "x": 9,
+              "y": 9
+            },
+            "lifetime": 3.2,
+            "rate": 65,
+            "size": 0.7,
+            "opacity": 0.95,
+            "color": {
+              "r": 1,
+              "g": 0.64,
+              "b": 0.12,
+              "a": 1
+            },
+            "gravity": -10,
+            "seed": 372
+          },
+          {
+            "label": "Puppy leaf impact",
+            "kind": 1,
+            "start": 3.3,
+            "end": 3.65,
+            "sourceUV": {
+              "x": 0.8,
+              "y": 0.2
+            },
+            "velocity": {
+              "x": 30,
+              "y": 22
+            },
+            "spread": {
+              "x": 9,
+              "y": 9
+            },
+            "lifetime": 3.2,
+            "rate": 65,
+            "size": 0.7,
+            "opacity": 0.95,
+            "color": {
+              "r": 1,
+              "g": 0.64,
+              "b": 0.12,
+              "a": 1
+            },
+            "gravity": -10,
+            "seed": 372
+          }
+        ],
+        "fireworks": [],
+        "backgroundUV": {
+          "x": 0,
+          "y": 0.23,
+          "z": 1,
+          "w": 0.77
+        }
+      },
+      "duration": 5.07,
+      "backgroundImagePath": "/Users/nayeon/.codex/.chatgpt-projects/g-p-6ad5bf6115f48191bdc5913689f4cf74/outputs/realistic_backgrounds/textures/autumn.png"
+    },
+    {
+      "id": "316611_medium",
+      "mainPath": "/Users/nayeon/Downloads/316611_medium.mp4",
+      "backgroundPath": "",
+      "preset": {
+        "displayName": "Cavalry portrait",
+        "observation": "기병 접근 후 약 2–4초 회전. 발굽 주변 먼지가 존재하며 주기적 먼지 확장은 연출 타이밍(개별 접지 자동 검출 아님).",
+        "sourceFiles": [
+          "/Users/nayeon/Downloads/316611_medium.mp4"
+        ],
+        "crop": {
+          "x": 0.03,
+          "y": 0.02,
+          "width": 0.94,
+          "height": 0.94
+        },
+        "width": 30,
+        "height": 48,
+        "elevation": 10,
+        "blend": 0.2,
+        "backgroundBrightness": 0.85,
+        "cleanBeachSky": false,
+        "useSourceEdges": false,
+        "cues": [
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 0.1,
+            "end": 0.44999999999999996,
+            "sourceUV": {
+              "x": 0.12,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": -20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 52
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 0.1,
+            "end": 0.44999999999999996,
+            "sourceUV": {
+              "x": 0.88,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": 20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 52
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 0.7,
+            "end": 1.0499999999999998,
+            "sourceUV": {
+              "x": 0.12,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": -20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 112
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 0.7,
+            "end": 1.0499999999999998,
+            "sourceUV": {
+              "x": 0.88,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": 20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 112
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 1.3,
+            "end": 1.65,
+            "sourceUV": {
+              "x": 0.12,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": -20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 172
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 1.3,
+            "end": 1.65,
+            "sourceUV": {
+              "x": 0.88,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": 20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 172
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 2.1,
+            "end": 2.45,
+            "sourceUV": {
+              "x": 0.12,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": -20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 252
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 2.1,
+            "end": 2.45,
+            "sourceUV": {
+              "x": 0.88,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": 20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 252
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 2.7,
+            "end": 3.0500000000000003,
+            "sourceUV": {
+              "x": 0.12,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": -20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 312
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 2.7,
+            "end": 3.0500000000000003,
+            "sourceUV": {
+              "x": 0.88,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": 20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 312
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 3.3,
+            "end": 3.65,
+            "sourceUV": {
+              "x": 0.12,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": -20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 372
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 3.3,
+            "end": 3.65,
+            "sourceUV": {
+              "x": 0.88,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": 20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 372
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 4.2,
+            "end": 4.55,
+            "sourceUV": {
+              "x": 0.12,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": -20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 462
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 4.2,
+            "end": 4.55,
+            "sourceUV": {
+              "x": 0.88,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": 20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 462
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 5,
+            "end": 5.35,
+            "sourceUV": {
+              "x": 0.12,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": -20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 542
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 5,
+            "end": 5.35,
+            "sourceUV": {
+              "x": 0.88,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": 20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 542
+          }
+        ],
+        "fireworks": [],
+        "backgroundUV": {
+          "x": 0,
+          "y": 0.25,
+          "z": 1,
+          "w": 0.75
+        }
+      },
+      "duration": 6.05,
+      "backgroundImagePath": "/Users/nayeon/.codex/.chatgpt-projects/g-p-6ad5bf6115f48191bdc5913689f4cf74/outputs/realistic_backgrounds/textures/battlefield.png"
+    },
+    {
+      "id": "gemini_generated_video_1766f8b3",
+      "mainPath": "/Users/nayeon/Downloads/gemini_generated_video_1766f8b3.mp4",
+      "backgroundPath": "",
+      "preset": {
+        "displayName": "Cavalry wide",
+        "observation": "기병 접근 후 약 2–4초 회전. 발굽 주변 먼지가 존재하며 주기적 먼지 확장은 연출 타이밍(개별 접지 자동 검출 아님).",
+        "sourceFiles": [
+          "/Users/nayeon/Downloads/gemini_generated_video_1766f8b3.mp4"
+        ],
+        "crop": {
+          "x": 0.03,
+          "y": 0.02,
+          "width": 0.94,
+          "height": 0.94
+        },
+        "width": 78,
+        "height": 48,
+        "elevation": 10,
+        "blend": 0.2,
+        "backgroundBrightness": 0.85,
+        "cleanBeachSky": false,
+        "useSourceEdges": false,
+        "cues": [
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 0.1,
+            "end": 0.44999999999999996,
+            "sourceUV": {
+              "x": 0.12,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": -20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 52
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 0.1,
+            "end": 0.44999999999999996,
+            "sourceUV": {
+              "x": 0.88,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": 20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 52
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 0.7,
+            "end": 1.0499999999999998,
+            "sourceUV": {
+              "x": 0.12,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": -20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 112
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 0.7,
+            "end": 1.0499999999999998,
+            "sourceUV": {
+              "x": 0.88,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": 20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 112
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 1.3,
+            "end": 1.65,
+            "sourceUV": {
+              "x": 0.12,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": -20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 172
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 1.3,
+            "end": 1.65,
+            "sourceUV": {
+              "x": 0.88,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": 20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 172
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 2.1,
+            "end": 2.45,
+            "sourceUV": {
+              "x": 0.12,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": -20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 252
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 2.1,
+            "end": 2.45,
+            "sourceUV": {
+              "x": 0.88,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": 20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 252
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 2.7,
+            "end": 3.0500000000000003,
+            "sourceUV": {
+              "x": 0.12,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": -20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 312
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 2.7,
+            "end": 3.0500000000000003,
+            "sourceUV": {
+              "x": 0.88,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": 20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 312
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 3.3,
+            "end": 3.65,
+            "sourceUV": {
+              "x": 0.12,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": -20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 372
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 3.3,
+            "end": 3.65,
+            "sourceUV": {
+              "x": 0.88,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": 20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 372
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 4.2,
+            "end": 4.55,
+            "sourceUV": {
+              "x": 0.12,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": -20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 462
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 4.2,
+            "end": 4.55,
+            "sourceUV": {
+              "x": 0.88,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": 20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 462
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 5,
+            "end": 5.35,
+            "sourceUV": {
+              "x": 0.12,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": -20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 542
+          },
+          {
+            "label": "Hoof dust / turn",
+            "kind": 0,
+            "start": 5,
+            "end": 5.35,
+            "sourceUV": {
+              "x": 0.88,
+              "y": 0.16
+            },
+            "velocity": {
+              "x": 20,
+              "y": 4
+            },
+            "spread": {
+              "x": 8,
+              "y": 6
+            },
+            "lifetime": 2.3,
+            "rate": 30,
+            "size": 2,
+            "opacity": 0.3,
+            "color": {
+              "r": 0.68,
+              "g": 0.45,
+              "b": 0.24,
+              "a": 1
+            },
+            "gravity": -1,
+            "seed": 542
+          }
+        ],
+        "fireworks": [],
+        "backgroundUV": {
+          "x": 0,
+          "y": 0.25,
+          "z": 1,
+          "w": 0.75
+        }
+      },
+      "duration": 6.04,
+      "backgroundImagePath": "/Users/nayeon/.codex/.chatgpt-projects/g-p-6ad5bf6115f48191bdc5913689f4cf74/outputs/realistic_backgrounds/textures/battlefield.png"
+    },
+    {
+      "id": "211375_medium",
+      "mainPath": "/Users/nayeon/Downloads/211375_medium.mp4",
+      "backgroundPath": "/Users/nayeon/Desktop/vrdome/coral_reef_v2_bg_01.mp4",
+      "preset": {
+        "displayName": "Coral bubbles",
+        "observation": "수족관 산호와 물고기의 연속 움직임. 큰 충돌 없음. 기포와 부유물은 분위기 확장으로 설계하며 원본 사건으로 주장하지 않음.",
+        "sourceFiles": [
+          "/Users/nayeon/Downloads/211375_medium.mp4"
+        ],
+        "crop": {
+          "x": 0.08,
+          "y": 0.08,
+          "width": 0.84,
+          "height": 0.84
+        },
+        "width": 86,
+        "height": 48,
+        "elevation": 10,
+        "blend": 0.2,
+        "backgroundBrightness": 0.68,
+        "cleanBeachSky": false,
+        "useSourceEdges": false,
+        "cues": [
+          {
+            "label": "Ambient bubbles",
+            "kind": 4,
+            "start": 0,
+            "end": 26.08,
+            "sourceUV": {
+              "x": 0.06,
+              "y": 0.08
+            },
+            "velocity": {
+              "x": -8,
+              "y": 12
+            },
+            "spread": {
+              "x": 3,
+              "y": 4
+            },
+            "lifetime": 5,
+            "rate": 12,
+            "size": 0.4,
+            "opacity": 0.5,
+            "color": {
+              "r": 0.65,
+              "g": 0.9,
+              "b": 1,
+              "a": 1
+            },
+            "gravity": 0.5,
+            "seed": 42
+          },
+          {
+            "label": "Ambient bubbles",
+            "kind": 4,
+            "start": 0,
+            "end": 26.08,
+            "sourceUV": {
+              "x": 0.94,
+              "y": 0.08
+            },
+            "velocity": {
+              "x": 8,
+              "y": 12
+            },
+            "spread": {
+              "x": 3,
+              "y": 4
+            },
+            "lifetime": 5,
+            "rate": 12,
+            "size": 0.4,
+            "opacity": 0.5,
+            "color": {
+              "r": 0.65,
+              "g": 0.9,
+              "b": 1,
+              "a": 1
+            },
+            "gravity": 0.5,
+            "seed": 42
+          }
+        ],
+        "fireworks": [],
+        "backgroundUV": {
+          "x": 0,
+          "y": 0,
+          "z": 1,
+          "w": 1
+        }
+      },
+      "duration": 26.08
+    },
+    {
+      "id": "169880-841954078_medium",
+      "mainPath": "/Users/nayeon/Downloads/169880-841954078_medium.mp4",
+      "backgroundPath": "/Users/nayeon/Desktop/vrdome/forest_waterway_bg_01.mp4",
+      "preset": {
+        "displayName": "Forest fireflies",
+        "observation": "거의 고정된 판타지 숲 수로. 등불·물결 지속. 반딧불과 안개는 연출용 환경 확장.",
+        "sourceFiles": [
+          "/Users/nayeon/Downloads/169880-841954078_medium.mp4"
+        ],
+        "crop": {
+          "x": 0.08,
+          "y": 0.08,
+          "width": 0.84,
+          "height": 0.84
+        },
+        "width": 86,
+        "height": 48,
+        "elevation": 10,
+        "blend": 0.2,
+        "backgroundBrightness": 0.68,
+        "cleanBeachSky": false,
+        "useSourceEdges": false,
+        "cues": [
+          {
+            "label": "Lantern fireflies",
+            "kind": 8,
+            "start": 0,
+            "end": 59.53,
+            "sourceUV": {
+              "x": 0.05,
+              "y": 0.5
+            },
+            "velocity": {
+              "x": -5,
+              "y": 2
+            },
+            "spread": {
+              "x": 4,
+              "y": 5
+            },
+            "lifetime": 7,
+            "rate": 4,
+            "size": 0.27,
+            "opacity": 0.8,
+            "color": {
+              "r": 1,
+              "g": 0.65,
+              "b": 0.18,
+              "a": 1
+            },
+            "gravity": 0,
+            "seed": 42
+          },
+          {
+            "label": "Lantern fireflies",
+            "kind": 8,
+            "start": 0,
+            "end": 59.53,
+            "sourceUV": {
+              "x": 0.95,
+              "y": 0.5
+            },
+            "velocity": {
+              "x": 5,
+              "y": 2
+            },
+            "spread": {
+              "x": 4,
+              "y": 5
+            },
+            "lifetime": 7,
+            "rate": 4,
+            "size": 0.27,
+            "opacity": 0.8,
+            "color": {
+              "r": 1,
+              "g": 0.65,
+              "b": 0.18,
+              "a": 1
+            },
+            "gravity": 0,
+            "seed": 42
+          },
+          {
+            "label": "Low forest mist",
+            "kind": 7,
+            "start": 0,
+            "end": 59.53,
+            "sourceUV": {
+              "x": 0.1,
+              "y": 0.18
+            },
+            "velocity": {
+              "x": -8,
+              "y": 1
+            },
+            "spread": {
+              "x": 3,
+              "y": 2
+            },
+            "lifetime": 7,
+            "rate": 3,
+            "size": 3,
+            "opacity": 0.12,
+            "color": {
+              "r": 0.5,
+              "g": 0.3,
+              "b": 0.65,
+              "a": 1
+            },
+            "gravity": 0,
+            "seed": 42
+          },
+          {
+            "label": "Low forest mist",
+            "kind": 7,
+            "start": 0,
+            "end": 59.53,
+            "sourceUV": {
+              "x": 0.9,
+              "y": 0.18
+            },
+            "velocity": {
+              "x": 8,
+              "y": 1
+            },
+            "spread": {
+              "x": 3,
+              "y": 2
+            },
+            "lifetime": 7,
+            "rate": 3,
+            "size": 3,
+            "opacity": 0.12,
+            "color": {
+              "r": 0.5,
+              "g": 0.3,
+              "b": 0.65,
+              "a": 1
+            },
+            "gravity": 0,
+            "seed": 42
+          }
+        ],
+        "fireworks": [],
+        "backgroundUV": {
+          "x": 0,
+          "y": 0,
+          "z": 1,
+          "w": 1
+        }
+      },
+      "duration": 59.53
+    },
+    {
+      "id": "267744_medium",
+      "mainPath": "/Users/nayeon/Downloads/267744_medium.mp4",
+      "backgroundPath": "/Users/nayeon/Desktop/vrdome/city_night_bg_01.mp4",
+      "preset": {
+        "displayName": "City light trails",
+        "observation": "고층 건물 사이 야경, 하향 시점과 느린 카메라 이동. 교통 광적의 방향을 주변으로 연장하는 디자인 큐.",
+        "sourceFiles": [
+          "/Users/nayeon/Downloads/267744_medium.mp4"
+        ],
+        "crop": {
+          "x": 0.08,
+          "y": 0.08,
+          "width": 0.84,
+          "height": 0.84
+        },
+        "width": 86,
+        "height": 48,
+        "elevation": 10,
+        "blend": 0.2,
+        "backgroundBrightness": 0.68,
+        "cleanBeachSky": false,
+        "useSourceEdges": false,
+        "cues": [
+          {
+            "label": "Traffic flow extension",
+            "kind": 6,
+            "start": 0,
+            "end": 8,
+            "sourceUV": {
+              "x": 0.08,
+              "y": 0.35
+            },
+            "velocity": {
+              "x": -15,
+              "y": -12
+            },
+            "spread": {
+              "x": 3,
+              "y": 4
+            },
+            "lifetime": 2.5,
+            "rate": 16,
+            "size": 0.6,
+            "opacity": 0.5,
+            "color": {
+              "r": 1,
+              "g": 0.65,
+              "b": 0.3,
+              "a": 1
+            },
+            "gravity": 0,
+            "seed": 42
+          },
+          {
+            "label": "Traffic flow extension",
+            "kind": 6,
+            "start": 0,
+            "end": 8,
+            "sourceUV": {
+              "x": 0.92,
+              "y": 0.35
+            },
+            "velocity": {
+              "x": 15,
+              "y": -12
+            },
+            "spread": {
+              "x": 3,
+              "y": 4
+            },
+            "lifetime": 2.5,
+            "rate": 16,
+            "size": 0.6,
+            "opacity": 0.5,
+            "color": {
+              "r": 1,
+              "g": 0.65,
+              "b": 0.3,
+              "a": 1
+            },
+            "gravity": 0,
+            "seed": 42
+          }
+        ],
+        "fireworks": [],
+        "backgroundUV": {
+          "x": 0,
+          "y": 0,
+          "z": 1,
+          "w": 1
+        }
+      },
+      "duration": 8.0
+    },
+    {
+      "id": "3834-175213527_medium",
+      "mainPath": "/Users/nayeon/Downloads/3834-175213527_medium.mp4",
+      "backgroundPath": "/Users/nayeon/Desktop/vrdome/fairground_ride_v6_bg_01.mp4",
+      "preset": {
+        "displayName": "Fairground light sweep",
+        "observation": "회전 놀이기구의 반복 통과. 주변 광적은 연속 운동 연출이며 특정 충돌 큐는 없음.",
+        "sourceFiles": [
+          "/Users/nayeon/Downloads/3834-175213527_medium.mp4"
+        ],
+        "crop": {
+          "x": 0.08,
+          "y": 0.08,
+          "width": 0.84,
+          "height": 0.84
+        },
+        "width": 86,
+        "height": 46,
+        "elevation": 10,
+        "blend": 0.2,
+        "backgroundBrightness": 0.68,
+        "cleanBeachSky": false,
+        "useSourceEdges": false,
+        "cues": [
+          {
+            "label": "Rotating ride light sweep",
+            "kind": 6,
+            "start": 0,
+            "end": 48.49,
+            "sourceUV": {
+              "x": 0.07,
+              "y": 0.45
+            },
+            "velocity": {
+              "x": -26,
+              "y": 3
+            },
+            "spread": {
+              "x": 5,
+              "y": 6
+            },
+            "lifetime": 2.4,
+            "rate": 35,
+            "size": 0.75,
+            "opacity": 0.6,
+            "color": {
+              "r": 0.2,
+              "g": 0.9,
+              "b": 1,
+              "a": 1
+            },
+            "gravity": 0,
+            "seed": 42
+          },
+          {
+            "label": "Rotating ride light sweep",
+            "kind": 6,
+            "start": 0,
+            "end": 48.49,
+            "sourceUV": {
+              "x": 0.93,
+              "y": 0.45
+            },
+            "velocity": {
+              "x": 26,
+              "y": 3
+            },
+            "spread": {
+              "x": 5,
+              "y": 6
+            },
+            "lifetime": 2.4,
+            "rate": 35,
+            "size": 0.75,
+            "opacity": 0.6,
+            "color": {
+              "r": 1,
+              "g": 0.25,
+              "b": 0.7,
+              "a": 1
+            },
+            "gravity": 0,
+            "seed": 42
+          }
+        ],
+        "fireworks": [],
+        "backgroundUV": {
+          "x": 0,
+          "y": 0,
+          "z": 1,
+          "w": 1
+        }
+      },
+      "duration": 48.49
+    },
+    {
+      "id": "20454-309694522_medium",
+      "mainPath": "/Users/nayeon/Downloads/20454-309694522_medium.mp4",
+      "backgroundPath": "",
+      "preset": {
+        "displayName": "Seaside dusk",
+        "observation": "실루엣 사람들이 방파제 위로 걸음. 직접적인 파티클 사건 없음. 해풍의 미세 입자를 낮은 강도로 추가하는 분위기 연출.",
+        "sourceFiles": [
+          "/Users/nayeon/Downloads/20454-309694522_medium.mp4"
+        ],
+        "crop": {
+          "x": 0.08,
+          "y": 0.08,
+          "width": 0.84,
+          "height": 0.84
+        },
+        "width": 86,
+        "height": 42,
+        "elevation": 10,
+        "blend": 0.2,
+        "backgroundBrightness": 0.9,
+        "cleanBeachSky": false,
+        "useSourceEdges": false,
+        "cues": [
+          {
+            "label": "Subtle sea breeze",
+            "kind": 7,
+            "start": 0,
+            "end": 27.56,
+            "sourceUV": {
+              "x": 0.06,
+              "y": 0.12
+            },
+            "velocity": {
+              "x": -9,
+              "y": 2
+            },
+            "spread": {
+              "x": 2,
+              "y": 1
+            },
+            "lifetime": 4,
+            "rate": 4,
+            "size": 1.3,
+            "opacity": 0.08,
+            "color": {
+              "r": 0.75,
+              "g": 0.8,
+              "b": 0.85,
+              "a": 1
+            },
+            "gravity": 0,
+            "seed": 42
+          },
+          {
+            "label": "Subtle sea breeze",
+            "kind": 7,
+            "start": 0,
+            "end": 27.56,
+            "sourceUV": {
+              "x": 0.94,
+              "y": 0.12
+            },
+            "velocity": {
+              "x": 9,
+              "y": 2
+            },
+            "spread": {
+              "x": 2,
+              "y": 1
+            },
+            "lifetime": 4,
+            "rate": 4,
+            "size": 1.3,
+            "opacity": 0.08,
+            "color": {
+              "r": 0.75,
+              "g": 0.8,
+              "b": 0.85,
+              "a": 1
+            },
+            "gravity": 0,
+            "seed": 42
+          }
+        ],
+        "fireworks": [],
+        "backgroundUV": {
+          "x": 0,
+          "y": 0.08,
+          "z": 1,
+          "w": 0.92
+        }
+      },
+      "duration": 27.56,
+      "backgroundImagePath": "/Users/nayeon/.codex/.chatgpt-projects/g-p-6ad5bf6115f48191bdc5913689f4cf74/outputs/realistic_backgrounds/textures/promenade.png"
+    },
+    {
+      "id": "91678-629172618_medium",
+      "mainPath": "/Users/nayeon/Downloads/91678-629172618_medium.mp4",
+      "backgroundPath": "",
+      "preset": {
+        "displayName": "Falling cards",
+        "observation": "동전 위로 카드가 반복 낙하. 원본과 구별되는 간소화한 카드 파티클을 좌우 주변으로 이어 떨어뜨림.",
+        "sourceFiles": [
+          "/Users/nayeon/Downloads/91678-629172618_medium.mp4"
+        ],
+        "crop": {
+          "x": 0.08,
+          "y": 0.08,
+          "width": 0.84,
+          "height": 0.84
+        },
+        "width": 86,
+        "height": 48,
+        "elevation": 10,
+        "blend": 0.2,
+        "backgroundBrightness": 0.95,
+        "cleanBeachSky": false,
+        "useSourceEdges": false,
+        "cues": [
+          {
+            "label": "Card rain continuation",
+            "kind": 5,
+            "start": 0,
+            "end": 28.82,
+            "sourceUV": {
+              "x": 0.06,
+              "y": 0.96
+            },
+            "velocity": {
+              "x": -12,
+              "y": -10
+            },
+            "spread": {
+              "x": 6,
+              "y": 4
+            },
+            "lifetime": 5,
+            "rate": 5,
+            "size": 1.3,
+            "opacity": 0.95,
+            "color": {
+              "r": 0.7,
+              "g": 0.08,
+              "b": 0.08,
+              "a": 1
+            },
+            "gravity": -2,
+            "seed": 42
+          },
+          {
+            "label": "Card rain continuation",
+            "kind": 5,
+            "start": 0,
+            "end": 28.82,
+            "sourceUV": {
+              "x": 0.94,
+              "y": 0.96
+            },
+            "velocity": {
+              "x": 12,
+              "y": -10
+            },
+            "spread": {
+              "x": 6,
+              "y": 4
+            },
+            "lifetime": 5,
+            "rate": 5,
+            "size": 1.3,
+            "opacity": 0.95,
+            "color": {
+              "r": 0.08,
+              "g": 0.1,
+              "b": 0.14,
+              "a": 1
+            },
+            "gravity": -2,
+            "seed": 42
+          }
+        ],
+        "fireworks": [],
+        "backgroundUV": {
+          "x": 0,
+          "y": 0,
+          "z": 1,
+          "w": 1
+        }
+      },
+      "duration": 28.82,
+      "backgroundImagePath": "/Users/nayeon/.codex/.chatgpt-projects/g-p-6ad5bf6115f48191bdc5913689f4cf74/outputs/realistic_backgrounds/textures/coins.png"
+    }
+  ]
+}

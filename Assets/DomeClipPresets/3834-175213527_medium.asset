@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80e6158845a14470831b1aa37271817, type: 3}
+  m_Name: 3834-175213527_medium
+  m_EditorClassIdentifier: Assembly-CSharp::DomeClipPreset
+  displayName: Fairground light sweep
+  observation: "\uD68C\uC804 \uB180\uC774\uAE30\uAD6C\uC758 \uBC18\uBCF5 \uD1B5\uACFC. \uC8FC\uBCC0 \uAD11\uC801\uC740 \uC5F0\uC18D \uC6B4\uB3D9 \uC5F0\uCD9C\uC774\uBA70 \uD2B9\uC815 \uCDA9\uB3CC \uD050\uB294 \uC5C6\uC74C."
+  sourceFiles:
+  - /Users/nayeon/Downloads/3834-175213527_medium.mp4
+  mainClip: {fileID: 32900000, guid: 7bb40039c231544afadfc0ae748d5b6e, type: 3}
+  backgroundClip: {fileID: 32900000, guid: 50eade7f03b724fe6bedacfe74ed2519, type: 3}
+  backgroundImage: {fileID: 0}
+  backgroundUV: {x: 0, y: 0, z: 1, w: 1}
+  crop:
+    serializedVersion: 2
+    x: 0.08
+    y: 0.08
+    width: 0.84
+    height: 0.84
+  width: 86
+  height: 46
+  elevation: 10
+  blend: 0.2
+  backgroundBrightness: 0.68
+  cleanBeachSky: 0
+  useSourceEdges: 0
+  cues:
+  - label: Rotating ride light sweep
+    kind: 6
+    start: 0
+    end: 48.49
+    lifetime: 2.4
+    sourceUV: {x: 0.07, y: 0.45}
+    velocity: {x: -26, y: 3}
+    spread: {x: 5, y: 6}
+    gravity: 0
+    rate: 35
+    size: 0.75
+    opacity: 0.6
+    color: {r: 0.2, g: 0.9, b: 1, a: 1}
+    seed: 42
+  - label: Rotating ride light sweep
+    kind: 6
+    start: 0
+    end: 48.49
+    lifetime: 2.4
+    sourceUV: {x: 0.93, y: 0.45}
+    velocity: {x: 26, y: 3}
+    spread: {x: 5, y: 6}
+    gravity: 0
+    rate: 35
+    size: 0.75
+    opacity: 0.6
+    color: {r: 1, g: 0.25, b: 0.7, a: 1}
+    seed: 42
+  fireworks: []

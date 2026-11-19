@@ -1,0 +1,2 @@
+PASS: tracked camera, 8 world menu buttons, seat change, video switch, pause/resume, hide/show, desktop rendering.
+Headset tracking, controller input, stereo and Android video decoding require physical Quest 3 testing.
