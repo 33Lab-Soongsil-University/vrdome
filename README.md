@@ -3,7 +3,7 @@
 Unity 돔 영상 확장 실험 프로젝트입니다. 메인 영상의 일부 영역을 BG에 부드럽게 연결하고, 장면에 맞춘 파티클을 함께 표시합니다.
 
 - Unity: **6000.6.9f1**, URP
-- VR 대상: **Meta Quest 3**, Android / OpenXR / ARM64 / IL2CPP
+- VR 대상: **Meta Quest 3 + Windows PC**, Meta Horizon Link / OpenXR / Direct3D 11
 - PC·VR 공용 씬: `Assets/Scenes/quest3_dome.unity`
 - 모니터 프리뷰: `Assets/Scenes/nov11_video_suite.unity`
 - 영상 프리셋: `Assets/DomeClipPresets`
@@ -33,11 +33,24 @@ git lfs pull
 - 위/아래 방향키: 다음/이전 좌석
 - Space: 재생/일시정지, R: 시점 초기화, Esc: 메뉴 숨김
 
-실행 중인 XR 화면이 있으면 VR 조작을 사용합니다. 컨트롤러 또는 머리 추적의 일시적인 손실로 PC 모드가 되지는 않습니다. Quest Android 앱은 시작부터 VR 조작을 사용합니다. PC와 VR은 동일한 영상·BG·파티클·좌석을 공유합니다.
+실행 중인 XR 화면이 있으면 VR 조작을 사용합니다. 컨트롤러 또는 머리 추적의 일시적인 손실로 PC 모드가 되지는 않습니다. PC와 VR은 동일한 영상·BG·파티클·좌석을 공유합니다.
 
-## Quest 3
+## Windows PC + Quest Link
 
-`Tools > Dome Study > Quest 3 > Build APK`에서 빌드합니다. 결과는 `Builds/Quest3/VRDome-Quest3.apk`입니다.
+1. Windows에서 Unity 6000.6.9f1로 프로젝트를 열고 Git LFS 영상을 받습니다.
+2. File > Build Profiles에서 Windows를 선택하고 Switch Platform 합니다.
+3. Tools > Dome Study > PC VR > Configure Windows Link를 실행합니다.
+4. Meta Horizon Link 앱에서 Quest 3를 USB Link 또는 Air Link로 연결합니다.
+5. Link 앱 설정의 OpenXR Runtime에서 Meta Horizon Link를 활성 런타임으로 설정합니다.
+6. 헤드셋 안에서도 Link 연결 화면으로 들어간 뒤 quest3_dome 씬을 Play 합니다.
+
+Link는 Play 전에 연결하세요. 연결 후에도 PC 모드라면 Play를 정지했다가 다시 실행하세요.
+PC XR Plug-in Management에 OpenXR 및 Initialize XR on Startup이 켜지고 Oculus Touch Controller Profile이 설정됩니다.
+Mac의 Play는 모니터 미리보기용입니다. Quest Link 송출은 Windows에서 실행합니다. Android/APK는 필요 없습니다.
+
+실행 파일은 Tools > Dome Study > PC VR > Build Windows EXE로 만듭니다.
+결과: Builds/Windows/VRDome.exe. exe만 복사하지 말고 Windows 폴더 전체를 옮깁니다.
+Windows 빌드 모듈이 필요한 경우 Unity Hub에서 설치합니다.
 
 - 오른손 B: 메뉴 표시/숨김
 - 트리거: 포인터로 가리킨 버튼 선택
@@ -47,6 +60,6 @@ git lfs pull
 
 14개 영상 프리셋 전환 시 메인, BG, 파티클 설정이 함께 바뀝니다. 일반 2D 원본 영상은 곡면에 표시되며, 극장과 파티클은 3D 공간에 배치됩니다.
 
-Android APK 빌드 및 에디터 메뉴/영상/좌석 검사를 통과했습니다. 실제 HMD의 양안 표시, 컨트롤러 입력, Android 영상 디코딩과 프레임레이트는 기기 검증이 필요합니다. Main / Abstract / Context 실험 조건 배정과 결과 기록은 별도 구현 대상입니다.
+기존 에디터 메뉴/영상/좌석 검사는 통과했습니다. Windows EXE 빌드와 실제 Link 양안 표시, 컨트롤러 입력 및 프레임레이트는 Windows PC와 기기에서 검증해야 합니다. Main / Abstract / Context 실험 조건 배정과 결과 기록은 별도 구현 대상입니다.
 
 이 저장소에는 연구용 영상 및 생성 이미지가 포함됩니다. 별도의 일괄 재배포 라이선스를 부여하지 않습니다.

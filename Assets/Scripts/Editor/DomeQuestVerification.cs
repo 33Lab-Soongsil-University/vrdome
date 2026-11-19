@@ -21,9 +21,9 @@ public static class DomeQuestVerification
         if(File.Exists("/tmp/dome-quest-verify.request")&&!EditorApplication.isPlayingOrWillChangePlaymode&&!EditorApplication.isCompiling)
         {
             File.Delete("/tmp/dome-quest-verify.request");
-            try {var issues=new List<OpenXRFeature.ValidationRule>();OpenXRProjectValidation.GetCurrentValidationIssues(issues,BuildTargetGroup.Android);
+            try {var issues=new List<OpenXRFeature.ValidationRule>();OpenXRProjectValidation.GetCurrentValidationIssues(issues,BuildTargetGroup.Standalone);
             File.WriteAllLines("/tmp/dome-quest-validation.txt",issues.Select(x=>(x.error?"ERROR: ":"WARN: ")+x.message));}
-            catch(Exception e){File.WriteAllText("/tmp/dome-quest-validation.txt","Android-target validation deferred while running the desktop target: "+e.Message);}
+            catch(Exception e){File.WriteAllText("/tmp/dome-quest-validation.txt","PC OpenXR validation unavailable on this editor host: "+e.Message);}
             EditorSceneManager.OpenScene(DomeQuestBuilder.ScenePath);
             SessionState.SetBool("DomeQuestVerify",true);EditorApplication.isPlaying=true;return;
         }
@@ -63,7 +63,7 @@ public static class DomeQuestVerification
             {
                 if(rig.library.current!=1)throw new Exception("Clip action failed");
                 rig.ShowMenu(false);if(rig.MenuVisible)throw new Exception("Hide menu failed");rig.ShowMenu(true);
-                File.WriteAllText("/tmp/dome-quest-verification.txt","PASS: automatic desktop mode without HMD; simulated VR/PC transitions and camera ownership; right-drag look, R recenter, mouse hit-test seat selection, keyboard video switch and pause; 8 menu buttons, playback and rendering.\nHeadset tracking, controller input, stereo and Android video decoding require physical Quest 3 testing.");
+                File.WriteAllText("/tmp/dome-quest-verification.txt","PASS: automatic desktop mode without HMD; simulated VR/PC transitions and camera ownership; right-drag look, R recenter, mouse hit-test seat selection, keyboard video switch and pause; 8 menu buttons, playback and rendering.\nHeadset tracking, controller input, stereo and Windows video decoding require physical Quest 3 testing.");
                 Finish();
             }
         }

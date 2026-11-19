@@ -13,7 +13,6 @@ using UnityEngine.SpatialTracking;
 using UnityEngine.XR.Management;
 using UnityEngine.XR.OpenXR;
 using UnityEngine.XR.OpenXR.Features.Interactions;
-using UnityEngine.XR.OpenXR.Features.MetaQuestSupport;
 using Unity.XR.CoreUtils;
 
 public static class DomeQuestBuilder
@@ -21,14 +20,14 @@ public static class DomeQuestBuilder
     public const string ScenePath="Assets/Scenes/quest3_dome.unity";
     [InitializeOnLoadMethod] static void Auto()
     {
-        if(File.Exists("/tmp/dome-quest-setup.request")){File.Delete("/tmp/dome-quest-setup.request");EditorApplication.delayCall+=Setup;}
+        if(File.Exists(Path.Combine(Path.GetTempPath(),"dome-quest-setup.request"))){File.Delete(Path.Combine(Path.GetTempPath(),"dome-quest-setup.request"));EditorApplication.delayCall+=Setup;}
     }
-    [MenuItem("Tools/Dome Study/Quest 3/Create or Update VR Scene")]
+    [MenuItem("Tools/Dome Study/PC VR/Configure Windows Link")]
     public static void Setup()
     {
         if(EditorApplication.isPlaying){Debug.LogError("Stop Play before Quest setup.");return;}
         if(!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())return;
-        ConfigureAndroid();
+        ConfigureWindows();
         if(!File.Exists(ScenePath))
         {
             var original=EditorSceneManager.OpenScene("Assets/Scenes/nov11_video_suite.unity");EditorSceneManager.SaveScene(original,ScenePath,true);
@@ -60,52 +59,45 @@ public static class DomeQuestBuilder
             if(renderer.GetComponent<DomePreview>()==null)GameObjectUtility.SetStaticEditorFlags(renderer.gameObject,GameObjectUtility.GetStaticEditorFlags(renderer.gameObject)|StaticEditorFlags.BatchingStatic);
         }
         EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();
-        File.WriteAllText("/tmp/dome-quest-setup.txt","Quest scene configured. Android OpenXR + Touch profile, tracked camera, world-space menu.\n"+ScenePath);
+        File.WriteAllText(Path.Combine(Path.GetTempPath(),"dome-quest-setup.txt"),"Quest scene configured. Windows OpenXR + Touch profile, tracked camera, world-space menu.\n"+ScenePath);
         Debug.Log("[DomeQuest] VR scene configured: "+ScenePath);
     }
-    public static void ConfigureAndroid()
+    public static void ConfigureWindows()
     {
         Directory.CreateDirectory("Assets/XR/Settings");
         if(!EditorBuildSettings.TryGetConfigObject(XRGeneralSettings.settingsKey,out XRGeneralSettingsPerBuildTarget all))
         {all=ScriptableObject.CreateInstance<XRGeneralSettingsPerBuildTarget>();AssetDatabase.CreateAsset(all,"Assets/XR/Settings/DomeXRGeneralSettings.asset");EditorBuildSettings.AddConfigObject(XRGeneralSettings.settingsKey,all,true);}
-        if(!all.HasSettingsForBuildTarget(BuildTargetGroup.Android))all.CreateDefaultSettingsForBuildTarget(BuildTargetGroup.Android);
-        if(!all.HasManagerSettingsForBuildTarget(BuildTargetGroup.Android))all.CreateDefaultManagerSettingsForBuildTarget(BuildTargetGroup.Android);
-        var general=all.SettingsForBuildTarget(BuildTargetGroup.Android);general.InitManagerOnStart=true;
-        if(!XRPackageMetadataStore.AssignLoader(general.Manager,"UnityEngine.XR.OpenXR.OpenXRLoader",BuildTargetGroup.Android))throw new Exception("OpenXR loader assignment failed");
-        UnityEditor.XR.OpenXR.Features.FeatureHelpers.RefreshFeatures(BuildTargetGroup.Android);
-        var settings=OpenXRSettings.GetSettingsForBuildTargetGroup(BuildTargetGroup.Android);
-        if(settings==null)throw new Exception("OpenXR settings missing");
-        var quest=settings.GetFeature<MetaQuestFeature>();var touch=settings.GetFeature<OculusTouchControllerProfile>();
-        if(quest==null||touch==null)throw new Exception("OpenXR feature list not ready; run setup again after package import");
-        quest.enabled=true;touch.enabled=true;settings.renderMode=OpenXRSettings.RenderMode.SinglePassInstanced;
-        PlayerSettings.SetScriptingBackend(NamedBuildTarget.Android,ScriptingImplementation.IL2CPP);
-        PlayerSettings.Android.targetArchitectures=AndroidArchitecture.ARM64;
-        PlayerSettings.Android.minSdkVersion=AndroidSdkVersions.AndroidApiLevel32;
-        PlayerSettings.Android.targetSdkVersion=AndroidSdkVersions.AndroidApiLevelAuto;
-        PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.Android,"com.vrdome.queststudy");
-        PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.Android,false);
-        PlayerSettings.SetGraphicsAPIs(BuildTarget.Android,new[]{GraphicsDeviceType.Vulkan});
-        PlayerSettings.defaultInterfaceOrientation=UIOrientation.LandscapeLeft;
-        // OpenXR uses Input System; IMGUI desktop controls continue to use Event.current.
+        var group=BuildTargetGroup.Standalone;
+        if(!all.HasSettingsForBuildTarget(group))all.CreateDefaultSettingsForBuildTarget(group);
+        if(!all.HasManagerSettingsForBuildTarget(group))all.CreateDefaultManagerSettingsForBuildTarget(group);
+        var general=all.SettingsForBuildTarget(group);general.InitManagerOnStart=true;
+        if(!XRPackageMetadataStore.AssignLoader(general.Manager,"UnityEngine.XR.OpenXR.OpenXRLoader",group))throw new Exception("PC OpenXR loader assignment failed");
+        UnityEditor.XR.OpenXR.Features.FeatureHelpers.RefreshFeatures(group);
+        var settings=OpenXRSettings.GetSettingsForBuildTargetGroup(group);
+        if(settings==null)throw new Exception("PC OpenXR settings missing");
+        var touch=settings.GetFeature<OculusTouchControllerProfile>();
+        if(touch==null)throw new Exception("Oculus Touch profile missing");
+        touch.enabled=true;settings.renderMode=OpenXRSettings.RenderMode.SinglePassInstanced;
+        var android=all.SettingsForBuildTarget(BuildTargetGroup.Android);
+        if(android!=null){android.InitManagerOnStart=false;EditorUtility.SetDirty(android);}
+        PlayerSettings.SetScriptingBackend(NamedBuildTarget.Standalone,ScriptingImplementation.Mono2x);
+        PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.StandaloneWindows64,false);
+        PlayerSettings.SetGraphicsAPIs(BuildTarget.StandaloneWindows64,new[]{GraphicsDeviceType.Direct3D11});
+        PlayerSettings.runInBackground=true;
         var player=new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/ProjectSettings.asset")[0]);
         var input=player.FindProperty("activeInputHandler");if(input!=null){input.intValue=1;player.ApplyModifiedPropertiesWithoutUndo();}
-        EditorUtility.SetDirty(general);EditorUtility.SetDirty(general.Manager);EditorUtility.SetDirty(all);EditorUtility.SetDirty(settings);EditorUtility.SetDirty(quest);EditorUtility.SetDirty(touch);
+        EditorBuildSettings.scenes=new[]{new EditorBuildSettingsScene(ScenePath,true)};
+        EditorUtility.SetDirty(general);EditorUtility.SetDirty(general.Manager);EditorUtility.SetDirty(all);EditorUtility.SetDirty(settings);EditorUtility.SetDirty(touch);
         AssetDatabase.SaveAssets();
     }
-    [MenuItem("Tools/Dome Study/Quest 3/Build APK")]
-    public static void BuildAPK()
+    [MenuItem("Tools/Dome Study/PC VR/Build Windows EXE")]
+    public static void BuildWindows()
     {
-        if(!BuildPipeline.IsBuildTargetSupported(BuildTargetGroup.Android,BuildTarget.Android))throw new Exception("Android Build Support is not installed or editor restart is required.");
-        Setup();Directory.CreateDirectory("Builds/Quest3");
-        var rig=UnityEngine.Object.FindAnyObjectByType<DomeQuestViewer>();
-        if(rig==null||Vector3.Angle(rig.transform.up,Vector3.up)>.01f)throw new Exception("XR origin must be upright");
-        var issues=new System.Collections.Generic.List<UnityEngine.XR.OpenXR.Features.OpenXRFeature.ValidationRule>();
-        UnityEditor.XR.OpenXR.OpenXRProjectValidation.GetCurrentValidationIssues(issues,BuildTargetGroup.Android);
-        var validation=new System.Text.StringBuilder("XR origin upright; tracked camera and Quest scene saved.\n");
-        foreach(var issue in issues){validation.AppendLine((issue.error?"ERROR: ":"WARN: ")+issue.message);if(issue.error)throw new Exception(issue.message);}
-        File.WriteAllText("/tmp/dome-quest-validation.txt",validation.ToString());
-        var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{ScenePath},locationPathName="Builds/Quest3/VRDome-Quest3.apk",target=BuildTarget.Android,options=BuildOptions.None});
-        File.WriteAllText("/tmp/dome-quest-build.txt",report.summary.result+"\n"+report.summary.totalErrors+" errors\n"+report.summary.outputPath);
-        if(report.summary.result!=BuildResult.Succeeded)throw new Exception("Quest APK build failed: "+report.summary.result);
+        if(EditorApplication.isPlaying)throw new Exception("Stop Play before building.");
+        if(!BuildPipeline.IsBuildTargetSupported(BuildTargetGroup.Standalone,BuildTarget.StandaloneWindows64))throw new Exception("Install Windows Build Support in Unity Hub, or build on the Windows desktop.");
+        Setup();Directory.CreateDirectory("Builds/Windows");
+        var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{ScenePath},locationPathName="Builds/Windows/VRDome.exe",target=BuildTarget.StandaloneWindows64,options=BuildOptions.None});
+        if(report.summary.result!=BuildResult.Succeeded)throw new Exception("Windows build failed: "+report.summary.result);
+        Debug.Log("[DomeQuest] Windows build succeeded. Copy the entire Builds/Windows folder to the presentation PC.");
     }
 }

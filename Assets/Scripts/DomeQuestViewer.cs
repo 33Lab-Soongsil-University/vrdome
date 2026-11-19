@@ -38,7 +38,6 @@ public class DomeQuestViewer : MonoBehaviour
     bool HasVRDisplay()
     {
         // A running display defines VR, not momentary tracking or controller loss.
-        if(!Application.isEditor && Application.platform==RuntimePlatform.Android)return true;
         displays.Clear();SubsystemManager.GetSubsystems(displays);
         foreach(var display in displays)if(display.running)return true;
         return false;
