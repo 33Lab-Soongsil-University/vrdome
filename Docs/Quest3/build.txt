@@ -1,3 +1,3 @@
-Succeeded
-0 errors
-/Users/nayeon/vrdome/Builds/Quest3/VRDome-Quest3.apk
+Windows PC VR 대상. Windows EXE는 아직 빌드하지 않았습니다.
+Tools > Dome Study > PC VR > Build Windows EXE
+결과: Builds/Windows/VRDome.exe (폴더 전체 배포)

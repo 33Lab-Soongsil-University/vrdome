@@ -11,7 +11,7 @@ Windows PC + Meta Quest 3 (Link)
 
 Link는 Play 전에 연결하세요. 연결 후에도 PC 모드라면 Play를 정지했다가 다시 실행하세요.
 PC XR Plug-in Management에 OpenXR 및 Initialize XR on Startup이 켜지고 Oculus Touch Controller Profile이 설정됩니다.
-Mac의 Play는 모니터 미리보기용입니다. Quest Link 송출은 Windows에서 실행합니다. Android/APK는 필요 없습니다.
+Mac의 Play는 모니터 미리보기용입니다. Quest Link 송출은 Windows에서 실행합니다.
 
 실행 파일은 Tools > Dome Study > PC VR > Build Windows EXE로 만듭니다.
 결과: Builds/Windows/VRDome.exe. exe만 복사하지 말고 Windows 폴더 전체를 옮깁니다.

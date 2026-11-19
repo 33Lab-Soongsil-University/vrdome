@@ -78,8 +78,6 @@ public static class DomeQuestBuilder
         var touch=settings.GetFeature<OculusTouchControllerProfile>();
         if(touch==null)throw new Exception("Oculus Touch profile missing");
         touch.enabled=true;settings.renderMode=OpenXRSettings.RenderMode.SinglePassInstanced;
-        var android=all.SettingsForBuildTarget(BuildTargetGroup.Android);
-        if(android!=null){android.InitManagerOnStart=false;EditorUtility.SetDirty(android);}
         PlayerSettings.SetScriptingBackend(NamedBuildTarget.Standalone,ScriptingImplementation.Mono2x);
         PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.StandaloneWindows64,false);
         PlayerSettings.SetGraphicsAPIs(BuildTarget.StandaloneWindows64,new[]{GraphicsDeviceType.Direct3D11});

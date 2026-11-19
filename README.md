@@ -20,7 +20,7 @@ cd vrdome
 git lfs pull
 ```
 
-`Library`, `Temp`, 로그, 로컬 편집기 설정 및 APK는 저장소에서 제외합니다. Unity가 캐시를 다시 생성하므로 첫 실행은 시간이 걸릴 수 있습니다. 영상은 Git LFS로 추적하고 `.meta` 파일은 소스와 함께 유지합니다.
+`Library`, `Temp`, 로그, 로컬 편집기 설정 및 빌드 결과물는 저장소에서 제외합니다. Unity가 캐시를 다시 생성하므로 첫 실행은 시간이 걸릴 수 있습니다. 영상은 Git LFS로 추적하고 `.meta` 파일은 소스와 함께 유지합니다.
 
 ## Unity Play (HMD 없이 사용)
 
@@ -46,7 +46,7 @@ git lfs pull
 
 Link는 Play 전에 연결하세요. 연결 후에도 PC 모드라면 Play를 정지했다가 다시 실행하세요.
 PC XR Plug-in Management에 OpenXR 및 Initialize XR on Startup이 켜지고 Oculus Touch Controller Profile이 설정됩니다.
-Mac의 Play는 모니터 미리보기용입니다. Quest Link 송출은 Windows에서 실행합니다. Android/APK는 필요 없습니다.
+Mac의 Play는 모니터 미리보기용입니다. Quest Link 송출은 Windows에서 실행합니다.
 
 실행 파일은 Tools > Dome Study > PC VR > Build Windows EXE로 만듭니다.
 결과: Builds/Windows/VRDome.exe. exe만 복사하지 말고 Windows 폴더 전체를 옮깁니다.
