@@ -16,7 +16,10 @@ public class DomeQuestViewer : MonoBehaviour
     public Shader pointerShader;
     public int seat;
     Transform panel; Text status; LineRenderer laser; Material laserMaterial;
-    readonly List<XRInputSubsystem> subsystems=new List<XRInputSubsystem>();
+    readonly List<XRDisplaySubsystem> displays=new List<XRDisplaySubsystem>();
+    TrackedPoseDriver poseDriver; float desktopYaw,desktopPitch; bool vrCentered;
+    public bool IsVR { get; private set; }
+    public bool DesktopInputEnabled => !IsVR;
     readonly Dictionary<Collider,Button> buttons=new Dictionary<Collider,Button>();
     bool triggerWasDown,menuWasDown,playWasDown,recenterWasDown;
     bool dwellClicked; float dwell,axisReady,reopenDwell; Button hover; Font font;
@@ -27,17 +30,40 @@ public class DomeQuestViewer : MonoBehaviour
         var desktop=FindAnyObjectByType<SphereTheaterView>();if(desktop!=null)desktop.enabled=false;
         library.showInterface=false;library.playback.showControls=false;
     }
-    IEnumerator Start()
+    void Start()
     {
-        BuildMenu();SelectSeat(0);ShowMenu(true);
-        // Do not continuously recenter: physical head movement must remain visible.
-        for(int i=0;i<600;i++)
-        {
-            var h=InputDevices.GetDeviceAtXRNode(XRNode.Head);
-            if(h.TryGetFeatureValue(CommonUsages.isTracked,out bool tracked)&&tracked)
-            {yield return null;SelectSeat(seat);break;}
-            yield return null;
-        }
+        poseDriver=head.GetComponent<TrackedPoseDriver>();
+        BuildMenu();ApplyInputMode(HasVRDisplay(),true);ShowMenu(true);
+    }
+    bool HasVRDisplay()
+    {
+        // A running display defines VR, not momentary tracking or controller loss.
+        if(!Application.isEditor && Application.platform==RuntimePlatform.Android)return true;
+        displays.Clear();SubsystemManager.GetSubsystems(displays);
+        foreach(var display in displays)if(display.running)return true;
+        return false;
+    }
+    void ApplyInputMode(bool vr,bool force=false)
+    {
+        if(!force&&IsVR==vr)return;
+        IsVR=vr;vrCentered=false;
+        if(poseDriver!=null)poseDriver.enabled=vr;
+        desktopYaw=desktopPitch=0;
+        head.transform.localPosition=Vector3.zero;head.transform.localRotation=Quaternion.identity;
+        panel.localScale=Vector3.one*(vr?.0017f:.0025f);
+        triggerWasDown=menuWasDown=playWasDown=recenterWasDown=false;
+        ClearHover();SelectSeat(seat);
+    }
+    void LateUpdate()
+    {
+        if(!IsVR||vrCentered||panel==null)return;
+        var h=InputDevices.GetDeviceAtXRNode(XRNode.Head);
+        if(h.TryGetFeatureValue(CommonUsages.isTracked,out bool tracked)&&tracked){SelectSeat(seat);vrCentered=true;}
+    }
+    void ClearHover()
+    {
+        if(hover!=null)hover.image.color=Normal;
+        hover=null;dwell=0;dwellClicked=false;reopenDwell=0;
     }
     public void SelectSeat(int index)
     {
@@ -45,22 +71,26 @@ public class DomeQuestViewer : MonoBehaviour
         seat=(index%seats.Length+seats.Length)%seats.Length;var anchor=seats[seat];if(anchor==null)return;
         // Keep the virtual floor level; only the tracked head may pitch or roll.
         transform.rotation=Quaternion.Euler(0,transform.eulerAngles.y,0);
+        if(!IsVR){desktopYaw=desktopPitch=0;head.transform.localPosition=Vector3.zero;head.transform.localRotation=Quaternion.identity;}
         float delta=Mathf.DeltaAngle(head.transform.eulerAngles.y,anchor.eulerAngles.y);
         transform.RotateAround(head.transform.position,Vector3.up,delta);
         transform.position+=anchor.position-head.transform.position;
         if(MenuVisible)PlaceMenu();
     }
-    public void SelectClip(int delta){library.Select((library.current+delta+library.Count)%library.Count);}
+    public void SelectClip(int delta){if(library.Count==0)return;library.Select((library.current+delta+library.Count)%library.Count);}
     public void TogglePlayback(){if(library.playback.State==DomeVideoSetup.PlaybackState.Playing)library.playback.PausePlayback();else library.playback.ResumePlayback();}
-    public void ShowMenu(bool show){panel.gameObject.SetActive(show);if(show)PlaceMenu();hover=null;dwell=0;}
+    public void ShowMenu(bool show){panel.gameObject.SetActive(show);if(show)PlaceMenu();ClearHover();}
     void PlaceMenu()
     {
+        if(!IsVR){panel.position=head.transform.position+head.transform.forward*2f;panel.rotation=head.transform.rotation;return;}
         Vector3 f=Vector3.ProjectOnPlane(head.transform.forward,Vector3.up).normalized;if(f.sqrMagnitude<.1f)f=transform.forward;
         panel.position=head.transform.position+f*2f-Vector3.up*.12f;panel.rotation=Quaternion.LookRotation(f,Vector3.up);
     }
     void Update()
     {
         if(panel==null)return;
+        ApplyInputMode(HasVRDisplay());
+        if(!IsVR){laser.enabled=false;UpdateStatus();return;}
         var right=InputDevices.GetDeviceAtXRNode(XRNode.RightHand);var left=InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
         right.TryGetFeatureValue(CommonUsages.secondaryButton,out bool menuDown);
         right.TryGetFeatureValue(CommonUsages.primaryButton,out bool playDown);
@@ -77,7 +107,7 @@ public class DomeQuestViewer : MonoBehaviour
         {pos=head.transform.parent.TransformPoint(p);rot=head.transform.parent.rotation*q;}
         if(MenuVisible)
         {
-            status.text=$"{library.presets[library.current].displayName}\nSeat: {(seatNames!=null&&seat<seatNames.Length?seatNames[seat]:seat.ToString())}   |   {library.playback.State}";
+            UpdateStatus();
             Ray ray=new Ray(pos,rot*Vector3.forward);Button hitButton=null;float distance=3;
             // Only menu colliders are considered; theater geometry cannot steal UI input.
             foreach(var pair in buttons)if(pair.Key.Raycast(ray,out RaycastHit hit,3)&&hit.distance<distance){distance=hit.distance;hitButton=pair.Value;}
@@ -98,6 +128,61 @@ public class DomeQuestViewer : MonoBehaviour
         }
         triggerWasDown=trigger;
     }
+    void UpdateStatus()
+    {
+        if(status==null)return;
+        string clip=library.Count>0?library.presets[library.current].displayName:"No video";
+        status.text=$"{clip}\nSeat: {(seatNames!=null&&seat<seatNames.Length?seatNames[seat]:seat.ToString())} | {library.playback.State} | {(IsVR?"VR":"PC")}";
+    }
+    void HandleDesktopNavigation(Event e)
+    {
+        if(IsVR)return;
+        // IMGUI events are scoped to the Game view, including Input-System-only projects.
+        if(e.type==EventType.KeyDown&&!e.alt&&!e.control&&!e.command)
+        {
+            bool handled=true;
+            switch(e.keyCode)
+            {
+                case KeyCode.Tab:ShowMenu(!MenuVisible);break;
+                case KeyCode.Escape:ShowMenu(false);break;
+                case KeyCode.Space:TogglePlayback();break;
+                case KeyCode.LeftArrow:SelectClip(-1);break;
+                case KeyCode.RightArrow:SelectClip(1);break;
+                case KeyCode.UpArrow:SelectSeat(seat+1);break;
+                case KeyCode.DownArrow:SelectSeat(seat-1);break;
+                case KeyCode.R:SelectSeat(seat);break;
+                default:handled=false;break;
+            }
+            if(handled)e.Use();
+        }
+        if(e.type==EventType.MouseDrag&&e.button==1)
+        {
+            desktopYaw+=e.delta.x*.16f;desktopPitch=Mathf.Clamp(desktopPitch+e.delta.y*.16f,-80,80);
+            head.transform.localRotation=Quaternion.Euler(desktopPitch,desktopYaw,0);e.Use();
+        }
+    }
+    void OnGUI()
+    {
+        if(panel==null||IsVR)return;
+        var e=Event.current;
+        HandleDesktopNavigation(e);
+        var toggle=new Rect(Screen.width-160,12,148,32);
+        if(GUI.Button(toggle,MenuVisible?"Hide menu [Tab]":"Show menu [Tab]"))ShowMenu(!MenuVisible);
+        GUI.Box(new Rect(12,Screen.height-34,Mathf.Min(760,Screen.width-24),26),"PC | Right drag: look  |  Click: select  |  Left/Right: video  |  Up/Down: seat  |  Space: pause  |  R: recenter");
+        if(!MenuVisible||toggle.Contains(e.mousePosition))return;
+        bool click=e.type==EventType.MouseDown&&e.button==0;
+        if(DesktopMenuInput(e.mousePosition,click)&&click)e.Use();
+    }
+    bool DesktopMenuInput(Vector2 mousePosition,bool click)
+    {
+        if(IsVR||!MenuVisible)return false;
+        Ray ray=head.ScreenPointToRay(new Vector3(mousePosition.x,Screen.height-mousePosition.y,0));
+        Button target=null;float distance=3;
+        foreach(var pair in buttons)if(pair.Key.Raycast(ray,out RaycastHit hit,3)&&hit.distance<distance){distance=hit.distance;target=pair.Value;}
+        if(hover!=target){ClearHover();hover=target;if(hover!=null)hover.image.color=new Color(.18f,.48f,.48f,1);}
+        if(click&&hover!=null){var clicked=hover;clicked.onClick.Invoke();return true;}
+        return false;
+    }
     static readonly Color Normal=new Color(.10f,.17f,.23f,1);
     void BuildMenu()
     {
@@ -112,7 +197,7 @@ public class DomeQuestViewer : MonoBehaviour
         AddButton("Previous video",new Vector2(-160,40),()=>SelectClip(-1));AddButton("Next video",new Vector2(160,40),()=>SelectClip(1));
         AddButton("Previous seat",new Vector2(-160,-25),()=>SelectSeat(seat-1));AddButton("Next seat",new Vector2(160,-25),()=>SelectSeat(seat+1));
         AddButton("Play / Pause",new Vector2(-160,-90),TogglePlayback);AddButton("Restart",new Vector2(160,-90),()=>library.playback.RestartPlayback());
-        AddButton("Recenter",new Vector2(-160,-155),()=>SelectSeat(seat));AddButton("Hide menu (B)",new Vector2(160,-155),()=>ShowMenu(false));
+        AddButton("Recenter",new Vector2(-160,-155),()=>SelectSeat(seat));AddButton("Hide menu",new Vector2(160,-155),()=>ShowMenu(false));
         var beam=new GameObject("Controller menu pointer");beam.transform.SetParent(transform,false);laser=beam.AddComponent<LineRenderer>();
         laserMaterial=new Material(pointerShader);laserMaterial.color=new Color(.3f,1,.8f);laserMaterial.SetColor("_BaseColor",new Color(.3f,1,.8f));
         laser.sharedMaterial=laserMaterial;laser.positionCount=2;laser.startWidth=.003f;laser.endWidth=.002f;laser.useWorldSpace=true;

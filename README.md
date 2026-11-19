@@ -4,7 +4,7 @@ Unity 돔 영상 확장 실험 프로젝트입니다. 메인 영상의 일부 �
 
 - Unity: **6000.6.9f1**, URP
 - VR 대상: **Meta Quest 3**, Android / OpenXR / ARM64 / IL2CPP
-- VR 씬: `Assets/Scenes/quest3_dome.unity`
+- PC·VR 공용 씬: `Assets/Scenes/quest3_dome.unity`
 - 모니터 프리뷰: `Assets/Scenes/nov11_video_suite.unity`
 - 영상 프리셋: `Assets/DomeClipPresets`
 - 사용 및 검증 안내: `Docs/Quest3/Quest3_사용안내.txt`
@@ -21,6 +21,19 @@ git lfs pull
 ```
 
 `Library`, `Temp`, 로그, 로컬 편집기 설정 및 APK는 저장소에서 제외합니다. Unity가 캐시를 다시 생성하므로 첫 실행은 시간이 걸릴 수 있습니다. 영상은 Git LFS로 추적하고 `.meta` 파일은 소스와 함께 유지합니다.
+
+## Unity Play (HMD 없이 사용)
+
+`quest3_dome` 씬에서 Play를 누르면 PC 조작으로 자동 전환됩니다. Game 탭을 클릭해 키보드 포커스를 준 뒤 사용합니다.
+
+- 우클릭 드래그: 시점 이동
+- 왼쪽 클릭: 공간 메뉴 버튼 선택
+- Tab / 우측 상단 버튼: 메뉴 표시·숨김 (메뉴를 다시 열면 정면에 배치)
+- 좌/우 방향키: 이전/다음 영상
+- 위/아래 방향키: 다음/이전 좌석
+- Space: 재생/일시정지, R: 시점 초기화, Esc: 메뉴 숨김
+
+실행 중인 XR 화면이 있으면 VR 조작을 사용합니다. 컨트롤러 또는 머리 추적의 일시적인 손실로 PC 모드가 되지는 않습니다. Quest Android 앱은 시작부터 VR 조작을 사용합니다. PC와 VR은 동일한 영상·BG·파티클·좌석을 공유합니다.
 
 ## Quest 3
 
